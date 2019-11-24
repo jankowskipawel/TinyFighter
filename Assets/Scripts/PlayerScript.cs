@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public float speed;
 
-    private Vector3 target;
+    public int gold;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +37,11 @@ public class PlayerScript : MonoBehaviour
         {
             MoveDown();
         }
-
-        target = transform.GetComponent<Camera>()
-            .ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, -17.3f, 17.3f);
+        pos.y = Mathf.Clamp(pos.y, -9, 6);
+        transform.position = pos;
+        
     }
 
     void MoveLeft()
