@@ -13,7 +13,7 @@ public class AIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -29,9 +29,23 @@ public class AIScript : MonoBehaviour
             sr.flipX = false;
         }
 
-        if (Vector3.Distance(transform.position, player.transform.position) > 1) {
+        if (Vector3.Distance(transform.position, player.transform.position) > 1) 
+        {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, 
                 speed * Time.deltaTime);
+        }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject collider = GameObject.Find(collision.gameObject.name);
+        if (collider.CompareTag("Player"))
+        {
+            if (Vector3.Distance(transform.position, player.transform.position) > 1) 
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position*-1, 
+                    1);
+            }
         }
     }
 }

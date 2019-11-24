@@ -10,11 +10,16 @@ public class EnemyScript : MonoBehaviour
     private float currentHP;
     public int goldWorth;
     public UIManager ui;
-    
+    public HealthBar healthBar;
+    private PlayerScript _player;
+    public float damage;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHP = maxHP;
+        ui = GameObject.Find("Canvas").GetComponent<UIManager>();
+        _player = gameObject.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -26,6 +31,7 @@ public class EnemyScript : MonoBehaviour
     public void TakeDamage(float damageTaken)
     {
         currentHP -= damageTaken;
+        healthBar.SetSize(currentHP/maxHP);
         if (currentHP < 1)
         {
             Destroy(gameObject);
@@ -35,10 +41,10 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject bullet = GameObject.Find(collision.gameObject.name);
-        if (bullet.name.Substring(0, 5) == "Bulle")
+        GameObject collider = GameObject.Find(collision.gameObject.name);
+        if (collider.name.Substring(0, 1) == "B")
         {
-            float damageDealt = bullet.GetComponent<BulletScript>().damage;
+            float damageDealt = collider.GetComponent<BulletScript>().damage;
             TakeDamage(damageDealt);
         }
     }

@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
     public float speed;
+    public float maxHP;
+    private float currentHP;
+    public HealthBar healthBar;
 
     public int gold;
     // Start is called before the first frame update
     void Start()
     {
+        currentHP = maxHP;
     }
 
     // Update is called once per frame
@@ -63,4 +68,25 @@ public class PlayerScript : MonoBehaviour
     {
         transform.Translate(0, -speed*Time.deltaTime, 0);
     }
+
+    public void DealDamage(float damage)
+    {
+        currentHP -= damage;
+        healthBar.SetSize(currentHP/maxHP);
+        if (currentHP < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject collider = GameObject.Find(collision.gameObject.name);
+        if (collider.CompareTag("Enemy"))
+        {
+            float damage = collider.GetComponent<EnemyScript>().damage;
+            DealDamage(damage);
+        }
+    }
+    
 }
