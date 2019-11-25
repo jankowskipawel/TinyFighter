@@ -13,6 +13,10 @@ public class EnemyScript : MonoBehaviour
     public HealthBar healthBar;
     private PlayerScript _player;
     public float damage;
+    private Rigidbody2D _rb;
+    public float knockbackDelay;
+    private float _knockbackTimer;
+    private bool _isKnockedback = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +24,21 @@ public class EnemyScript : MonoBehaviour
         currentHP = maxHP;
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _player = gameObject.GetComponent<PlayerScript>();
+        _rb = GetComponent<Rigidbody2D>();
+        _knockbackTimer = knockbackDelay;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (_isKnockedback)
+        {
+            _knockbackTimer += Time.deltaTime;
+            if (_knockbackTimer >= knockbackDelay)
+            {
+                _isKnockedback = false;
+            }
+        }
     }
 
     public void TakeDamage(float damageTaken)
@@ -47,5 +60,15 @@ public class EnemyScript : MonoBehaviour
             float damageDealt = collider.GetComponent<BulletScript>().damage;
             TakeDamage(damageDealt);
         }
+
+        if (collider.CompareTag("Player") && _knockbackTimer >= knockbackDelay)
+        {
+            _knockbackTimer = 0;
+            Vector2 difference = transform.position - collision.transform.position;
+            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
+            _isKnockedback = true;
+        }
     }
+
+    
 }

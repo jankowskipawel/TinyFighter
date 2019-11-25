@@ -35,7 +35,7 @@ public class AIScript : MonoBehaviour
                 speed * Time.deltaTime);
         }
     }
-    
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collider = GameObject.Find(collision.gameObject.name);
@@ -47,5 +47,18 @@ public class AIScript : MonoBehaviour
                     1);
             }
         }
+    }
+    */
+    
+    public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)
+    {
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+        float timer = 0;
+        while (knockDur > timer)
+        {
+            rb.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
+        }
+
+        yield return 0;
     }
 }

@@ -8,13 +8,13 @@ public class AIScriptRB2D : MonoBehaviour
 {
     public Transform player;
     public float moveSpeed;
-    private Rigidbody2D _rb;
     public SpriteRenderer sr;
     private Vector2 _movement;
+
+    private bool _isKnockedback = false;
     // Start is called before the first frame update
     void Start()
     {
-        _rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").transform;
         sr = GetComponent<SpriteRenderer>();
     }
@@ -34,15 +34,14 @@ public class AIScriptRB2D : MonoBehaviour
         {
             sr.flipX = false;
         }
-    }
-
-    private void FixedUpdate()
-    {
+        
         MoveCharacter(_movement);
+  
     }
 
     void MoveCharacter(Vector2 direction)
     {
-        _rb.MovePosition((Vector2)transform.position + (Time.deltaTime * moveSpeed * direction));
+        transform.position = Vector2.Lerp(transform.position,
+            (Vector2) transform.position + (Time.deltaTime * moveSpeed * direction), Time.time);
     }
 }

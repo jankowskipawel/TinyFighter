@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     private float currentHP;
     public HealthBar healthBar;
     private Rigidbody2D rb;
-
+    public Animator animator;
     public int gold;
     // Start is called before the first frame update
     void Start()
@@ -27,21 +28,31 @@ public class PlayerScript : MonoBehaviour
         if (x > 0)
         {
             MoveLeft();
+            animator.SetFloat("Speed", Mathf.Abs(x));
+            
         }
         
         if (x < 0)
         {
             MoveRight();
+            animator.SetFloat("Speed", Mathf.Abs(x));
         }
         
         if (y > 0)
         {
             MoveUp();
+            animator.SetFloat("Speed", Mathf.Abs(y));
         }
         
         if (y < 0)
         {
             MoveDown();
+            animator.SetFloat("Speed", Mathf.Abs(y));
+        }
+
+        if (x == 0)
+        {
+            animator.SetFloat("Speed", 0);
         }
         Vector3 pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, -17.3f, 17.3f);
@@ -53,11 +64,13 @@ public class PlayerScript : MonoBehaviour
     void MoveLeft()
     {
         transform.Translate(speed*Time.deltaTime, 0, 0);
+        gameObject.GetComponent<SpriteRenderer>().flipX = false;
     }
     
     void MoveRight()
     {
         transform.Translate(-speed*Time.deltaTime, 0, 0);
+        gameObject.GetComponent<SpriteRenderer>().flipX = true;
     }
     
     void MoveUp()
@@ -87,7 +100,8 @@ public class PlayerScript : MonoBehaviour
         {
             float damage = collider.GetComponent<EnemyScript>().damage;
             DealDamage(damage);
+            AIScriptRB2D enemy = collision.gameObject.GetComponent<AIScriptRB2D>();
+            //StartCoroutine(enemy.Knockback(200, 1, gameObject.transform.position));
         }
     }
-    
 }
