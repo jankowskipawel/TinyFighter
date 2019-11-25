@@ -17,70 +17,46 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         currentHP = maxHP;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        Vector3 tempVect = new Vector3(h, v, 0);
+        tempVect = Time.deltaTime * speed * tempVect.normalized;
+        rb.MovePosition(rb.transform.position + tempVect);
         
-        if (x > 0)
+        if (h > 0)
         {
-            MoveLeft();
-            animator.SetFloat("Speed", Mathf.Abs(x));
-            
+            animator.SetFloat("Speed", Mathf.Abs(h));
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
         
-        if (x < 0)
+        if (h < 0)
         {
-            MoveRight();
-            animator.SetFloat("Speed", Mathf.Abs(x));
+            animator.SetFloat("Speed", Mathf.Abs(h));
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         
-        if (y > 0)
+        if (v > 0)
         {
-            MoveUp();
-            animator.SetFloat("Speed", Mathf.Abs(y));
+            animator.SetFloat("Speed", Mathf.Abs(v));
         }
         
-        if (y < 0)
+        if (v < 0)
         {
-            MoveDown();
-            animator.SetFloat("Speed", Mathf.Abs(y));
+            animator.SetFloat("Speed", Mathf.Abs(v));
         }
 
-        if (x == 0)
+        if (h == 0)
         {
             animator.SetFloat("Speed", 0);
         }
-        Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, -17.3f, 17.3f);
-        pos.y = Mathf.Clamp(pos.y, -9, 6);
-        transform.position = pos;
         
-    }
-
-    void MoveLeft()
-    {
-        transform.Translate(speed*Time.deltaTime, 0, 0);
-        gameObject.GetComponent<SpriteRenderer>().flipX = false;
-    }
-    
-    void MoveRight()
-    {
-        transform.Translate(-speed*Time.deltaTime, 0, 0);
-        gameObject.GetComponent<SpriteRenderer>().flipX = true;
-    }
-    
-    void MoveUp()
-    {
-        transform.Translate(0, speed*Time.deltaTime, 0);
-    }
-    
-    void MoveDown()
-    {
-        transform.Translate(0, -speed*Time.deltaTime, 0);
     }
 
     public void DealDamage(float damage)
