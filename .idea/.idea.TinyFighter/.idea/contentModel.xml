@@ -34,6 +34,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AIScript.cs" t="Include" />
+          <e p="AIScriptRB2D.cs" t="Include" />
           <e p="BulletScript.cs" t="Include" />
           <e p="EnemyScript.cs" t="Include" />
           <e p="GameHandler.cs" t="Include" />

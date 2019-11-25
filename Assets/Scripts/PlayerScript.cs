@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public float maxHP;
     private float currentHP;
     public HealthBar healthBar;
+    private Rigidbody2D rb;
 
     public int gold;
     // Start is called before the first frame update
