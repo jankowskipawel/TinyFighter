@@ -17,6 +17,8 @@ public class EnemyScript : MonoBehaviour
     public float knockbackDelay;
     private float _knockbackTimer;
     private bool _isKnockedback = false;
+    public float attackRate;
+    private float timer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +27,13 @@ public class EnemyScript : MonoBehaviour
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _player = gameObject.GetComponent<PlayerScript>();
         _rb = GetComponent<Rigidbody2D>();
-        _knockbackTimer = knockbackDelay;
+        //_knockbackTimer = knockbackDelay;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (_isKnockedback)
         {
             _knockbackTimer += Time.deltaTime;
@@ -38,7 +41,10 @@ public class EnemyScript : MonoBehaviour
             {
                 _isKnockedback = false;
             }
-        }
+        }*/
+        
+        _rb.velocity = Vector2.zero;
+        timer += Time.deltaTime;
     }
 
     public void TakeDamage(float damageTaken)
@@ -60,15 +66,27 @@ public class EnemyScript : MonoBehaviour
             float damageDealt = collider.GetComponent<BulletScript>().damage;
             TakeDamage(damageDealt);
         }
-
+        /*
         if (collider.CompareTag("Player") && _knockbackTimer >= knockbackDelay)
         {
             _knockbackTimer = 0;
             Vector2 difference = transform.position - collision.transform.position;
             transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
             _isKnockedback = true;
+        }*/
+    }
+    
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        GameObject collider = GameObject.Find(collision.gameObject.name);
+        if (collider.CompareTag("Player"))
+        {
+            while (timer > attackRate)
+            {
+                collider.GetComponent<PlayerScript>().DealDamage(damage);
+                timer = 0;
+            }
         }
     }
-
     
 }

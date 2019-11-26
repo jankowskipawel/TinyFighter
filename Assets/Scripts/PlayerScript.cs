@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     public Animator animator;
     public int gold;
+
+    //private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +59,8 @@ public class PlayerScript : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
-        
+
+        //timer += Time.deltaTime;
     }
 
     public void DealDamage(float damage)
@@ -69,15 +73,18 @@ public class PlayerScript : MonoBehaviour
         }
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject collider = GameObject.Find(collision.gameObject.name);
-        if (collider.CompareTag("Enemy"))
-        {
-            float damage = collider.GetComponent<EnemyScript>().damage;
-            DealDamage(damage);
-            AIScriptRB2D enemy = collision.gameObject.GetComponent<AIScriptRB2D>();
-            //StartCoroutine(enemy.Knockback(200, 1, gameObject.transform.position));
-        }
-    }
+//    private void OnCollisionStay2D(Collision2D collision)
+//    {
+//        GameObject collider = GameObject.Find(collision.gameObject.name);
+//        if (collider.CompareTag("Enemy"))
+//        {
+//            while (timer > collider.GetComponent<EnemyScript>().attackRate)
+//            {
+//                float damage = collider.GetComponent<EnemyScript>().damage;
+//                DealDamage(damage);
+//                AIScriptRB2D enemy = collision.gameObject.GetComponent<AIScriptRB2D>();
+//                timer = 0;
+//            }
+//        }
+//    }
 }

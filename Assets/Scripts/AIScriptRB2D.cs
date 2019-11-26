@@ -41,7 +41,15 @@ public class AIScriptRB2D : MonoBehaviour
 
     void MoveCharacter(Vector2 direction)
     {
-        transform.position = Vector2.Lerp(transform.position,
-            (Vector2) transform.position + (Time.deltaTime * moveSpeed * direction), Time.time);
+        var position = transform.position;
+        var playerPosition = player.position;
+        var distanceX = Math.Abs(playerPosition.x - position.x);
+        var distanceY = playerPosition.y - position.y;
+        if (distanceX > 1.75f || Math.Abs(distanceY) > 1.87f || (distanceY>0 && Math.Abs(distanceY) > 1.5f))
+        {
+            position = Vector2.Lerp(position,
+                (Vector2) position + (Time.deltaTime * moveSpeed * direction), Time.time);
+            transform.position = position;
+        }
     }
 }
