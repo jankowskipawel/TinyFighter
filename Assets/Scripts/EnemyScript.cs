@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        attackRate = 1 / attackRate;
         currentHP = maxHP;
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _player = gameObject.GetComponent<PlayerScript>();

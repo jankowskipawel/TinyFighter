@@ -10,8 +10,12 @@ public class AIScriptRB2D : MonoBehaviour
     public float moveSpeed;
     public SpriteRenderer sr;
     private Vector2 _movement;
+    public Animator animator;
 
     private bool _isKnockedback = false;
+
+    private static readonly int Speed = Animator.StringToHash("Speed");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,9 +51,14 @@ public class AIScriptRB2D : MonoBehaviour
         var distanceY = playerPosition.y - position.y;
         if (distanceX > 1.75f || Math.Abs(distanceY) > 1.87f || (distanceY>0 && Math.Abs(distanceY) > 1.5f))
         {
+            animator.SetFloat(Speed, 1);
             position = Vector2.Lerp(position,
                 (Vector2) position + (Time.deltaTime * moveSpeed * direction), Time.time);
             transform.position = position;
+        }
+        else
+        {
+            animator.SetFloat(Speed, 0);
         }
     }
 }
