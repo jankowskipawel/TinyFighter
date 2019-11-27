@@ -16,7 +16,6 @@ public class PlayerScript : MonoBehaviour
     public int gold;
     private float healthPrecentage;
 
-    //private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +62,12 @@ public class PlayerScript : MonoBehaviour
         }
 
         healthPrecentage = currentHP / maxHP;
+    }
+
+    public void DealDamage(float damage)
+    {
+        currentHP -= damage;
+        healthBar.SetSize(healthPrecentage);
         if (healthPrecentage <= 0.9f)
         {
             healthBar.SetColor(new Color(0.647f, 1f, 0f, 1));
@@ -85,12 +90,6 @@ public class PlayerScript : MonoBehaviour
         {
             healthBar.SetColor(new Color(0f, 1f, 0f, 1));
         }
-    }
-
-    public void DealDamage(float damage)
-    {
-        currentHP -= damage;
-        healthBar.SetSize(currentHP/maxHP);
         if (currentHP < 0)
         {
             Destroy(gameObject);
