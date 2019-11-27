@@ -63,7 +63,10 @@ public class PlayerScript : MonoBehaviour
         }
 
         healthPrecentage = currentHP / maxHP;
-        currentHP += healthRegen * Time.deltaTime;
+        if (currentHP <= maxHP)
+        {
+            currentHP += healthRegen * Time.deltaTime;
+        }
         healthBar.SetSize(healthPrecentage);
     }
 
