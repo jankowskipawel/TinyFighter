@@ -40,6 +40,7 @@
           <e p="GameHandler.cs" t="Include" />
           <e p="HandScript.cs" t="Include" />
           <e p="HealthBar.cs" t="Include" />
+          <e p="HealthBarPlayer.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="PointAndShoot.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />

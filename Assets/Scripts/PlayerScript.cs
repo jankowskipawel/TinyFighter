@@ -9,12 +9,13 @@ public class PlayerScript : MonoBehaviour
 {
     public float speed;
     public float maxHP;
-    private float currentHP;
+    public float currentHP;
     public HealthBar healthBar;
     private Rigidbody2D rb;
     public Animator animator;
     public int gold;
     private float healthPrecentage;
+    public float healthRegen;
 
     // Start is called before the first frame update
     void Start()
@@ -62,34 +63,14 @@ public class PlayerScript : MonoBehaviour
         }
 
         healthPrecentage = currentHP / maxHP;
+        currentHP += healthRegen * Time.deltaTime;
+        healthBar.SetSize(healthPrecentage);
     }
 
     public void DealDamage(float damage)
     {
         currentHP -= damage;
         healthBar.SetSize(healthPrecentage);
-        if (healthPrecentage <= 0.9f)
-        {
-            healthBar.SetColor(new Color(0.647f, 1f, 0f, 1));
-        }
-
-        if (healthPrecentage <= 0.5f)
-        {
-            healthBar.SetColor(new Color(1f, 1f, 0f, 1));
-        }
-        if (healthPrecentage <= 0.3f)
-        {
-            healthBar.SetColor(new Color(1f, 0f, 0f, 1));
-        }
-        if (healthPrecentage <= 0.15f)
-        {
-            healthBar.SetColor(new Color(0.75f, 0f, 0f, 1));
-        }
-
-        if (healthPrecentage > 0.9f)
-        {
-            healthBar.SetColor(new Color(0f, 1f, 0f, 1));
-        }
         if (currentHP < 0)
         {
             Destroy(gameObject);
