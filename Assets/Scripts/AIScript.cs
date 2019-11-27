@@ -35,21 +35,7 @@ public class AIScript : MonoBehaviour
                 speed * Time.deltaTime);
         }
     }
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject collider = GameObject.Find(collision.gameObject.name);
-        if (collider.CompareTag("Player"))
-        {
-            if (Vector3.Distance(transform.position, player.transform.position) > 1) 
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position*-1, 
-                    1);
-            }
-        }
-    }
-    */
-    
+
     public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)
     {
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();

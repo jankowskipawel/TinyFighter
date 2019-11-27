@@ -11,9 +11,7 @@ public class AIScriptRB2D : MonoBehaviour
     public SpriteRenderer sr;
     private Vector2 _movement;
     public Animator animator;
-
-    private bool _isKnockedback = false;
-
+    
     private static readonly int Speed = Animator.StringToHash("Speed");
 
     // Start is called before the first frame update

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\gryzi\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\gryzi\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_TinyFighter.-2101184226.00" t="ExcludeRecursive" />
-    <e p="E:\Projects\gamedev\TinyFighter" t="IncludeRecursive">
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_TinyFighter.-298952234.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="CodeMonkey" t="Include">
@@ -40,7 +40,6 @@
           <e p="GameHandler.cs" t="Include" />
           <e p="HandScript.cs" t="Include" />
           <e p="HealthBar.cs" t="Include" />
-          <e p="KnockbackScript.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="PointAndShoot.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
@@ -48,7 +47,7 @@
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
       <e p="TinyFighter.sln" t="IncludeFlat" />
     </e>
   </component>

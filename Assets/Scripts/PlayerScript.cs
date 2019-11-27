@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     public Animator animator;
     public int gold;
+    private float healthPrecentage;
 
     //private float timer = 0;
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     {
         currentHP = maxHP;
         rb = GetComponent<Rigidbody2D>();
+        healthBar.SetSize(1);
     }
 
     // Update is called once per frame
@@ -60,7 +62,29 @@ public class PlayerScript : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
 
-        //timer += Time.deltaTime;
+        healthPrecentage = currentHP / maxHP;
+        if (healthPrecentage <= 0.9f)
+        {
+            healthBar.SetColor(new Color(0.647f, 1f, 0f, 1));
+        }
+
+        if (healthPrecentage <= 0.5f)
+        {
+            healthBar.SetColor(new Color(1f, 1f, 0f, 1));
+        }
+        if (healthPrecentage <= 0.3f)
+        {
+            healthBar.SetColor(new Color(1f, 0f, 0f, 1));
+        }
+        if (healthPrecentage <= 0.15f)
+        {
+            healthBar.SetColor(new Color(0.75f, 0f, 0f, 1));
+        }
+
+        if (healthPrecentage > 0.9f)
+        {
+            healthBar.SetColor(new Color(0f, 1f, 0f, 1));
+        }
     }
 
     public void DealDamage(float damage)
@@ -72,19 +96,4 @@ public class PlayerScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-//    private void OnCollisionStay2D(Collision2D collision)
-//    {
-//        GameObject collider = GameObject.Find(collision.gameObject.name);
-//        if (collider.CompareTag("Enemy"))
-//        {
-//            while (timer > collider.GetComponent<EnemyScript>().attackRate)
-//            {
-//                float damage = collider.GetComponent<EnemyScript>().damage;
-//                DealDamage(damage);
-//                AIScriptRB2D enemy = collision.gameObject.GetComponent<AIScriptRB2D>();
-//                timer = 0;
-//            }
-//        }
-//    }
 }
