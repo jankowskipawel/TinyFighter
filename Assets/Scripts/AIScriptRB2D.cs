@@ -11,6 +11,7 @@ public class AIScriptRB2D : MonoBehaviour
     public SpriteRenderer sr;
     private Vector2 _movement;
     public Animator animator;
+    private Rigidbody2D rb;
     
     private static readonly int Speed = Animator.StringToHash("Speed");
 
@@ -19,6 +20,7 @@ public class AIScriptRB2D : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

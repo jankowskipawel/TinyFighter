@@ -54,6 +54,9 @@ public class EnemyScript : MonoBehaviour
         {
             float damageDealt = collider.GetComponent<BulletScript>().damage;
             TakeDamage(damageDealt);
+            var thisPosition = transform.position;
+            var moveDirection = player.transform.position - thisPosition;
+            transform.position = Vector3.Lerp(thisPosition, -moveDirection * collider.GetComponent<BulletScript>().knockbackPower, .1f);
         }
     }
     
