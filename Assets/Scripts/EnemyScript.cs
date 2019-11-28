@@ -15,6 +15,8 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D _rb;
     public float attackRate;
     private float timer = 0;
+    public float exp;
+    public PlayerScript player;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class EnemyScript : MonoBehaviour
         currentHP = maxHP;
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _rb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(gameObject);
             ui.AddGold(goldWorth);
+            player.AddExp(exp);
         }
     }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -11,11 +12,16 @@ public class PlayerScript : MonoBehaviour
     public float maxHP;
     public float currentHP;
     public HealthBar healthBar;
+    public Slider expBar;
     private Rigidbody2D rb;
     public Animator animator;
     public int gold;
     private float healthPrecentage;
     public float healthRegen;
+    private float currentExp = 0;
+    private float maxExp = 2;
+    private int level;
+    public int skillPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -78,5 +84,27 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AddExp(float exp)
+    {
+        if (currentExp + exp >= maxExp)
+        {
+            currentExp += exp;
+            currentExp -= maxExp;
+            level++;
+            skillPoints++;
+            maxExp *= 2;
+        }
+        else
+        {
+            currentExp += exp;
+        }
+        SetExpBar(currentExp/maxExp);
+    }
+
+    private void SetExpBar(float percentage)
+    {
+        expBar.value = percentage;
     }
 }
