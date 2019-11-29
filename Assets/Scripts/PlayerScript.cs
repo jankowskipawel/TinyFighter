@@ -11,24 +11,24 @@ public class PlayerScript : MonoBehaviour
     public float speed;
     public float maxHP;
     public float currentHP;
-    public HealthBar healthBar;
+    public HealthBarPlayerS healthBar;
     public Slider expBar;
     private Rigidbody2D rb;
     public Animator animator;
     public int gold;
     private float healthPrecentage;
     public float healthRegen;
-    private float currentExp = 0;
-    private float maxExp = 2;
+    public float currentExp = 0;
+    public float maxExp = 2;
     private int level;
     public int skillPoints;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         currentHP = maxHP;
         rb = GetComponent<Rigidbody2D>();
-        healthBar.SetSize(1);
     }
 
     // Update is called once per frame
@@ -67,19 +67,17 @@ public class PlayerScript : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
-
-        healthPrecentage = currentHP / maxHP;
         if (currentHP <= maxHP)
         {
             currentHP += healthRegen * Time.deltaTime;
         }
-        healthBar.SetSize(healthPrecentage);
+        healthBar.SetSize(currentHP, maxHP);
     }
 
     public void DealDamage(float damage)
     {
         currentHP -= damage;
-        healthBar.SetSize(healthPrecentage);
+        healthBar.SetSize(currentHP, maxHP);
         if (currentHP < 0)
         {
             Destroy(gameObject);

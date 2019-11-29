@@ -12,7 +12,7 @@ public class HealthBarPlayer : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerScript>();
-        _bar = player.GetComponent<PlayerScript>().healthBar;
+        //_bar = player.GetComponent<PlayerScript>().healthBar;
     }
 
     // Update is called once per frame
@@ -23,7 +23,6 @@ public class HealthBarPlayer : MonoBehaviour
         {
             _bar.SetColor(new Color(0.647f, 1f, 0f, 1));
         }
-
         if (healthPrecentage <= 0.5f)
         {
             _bar.SetColor(new Color(1f, 1f, 0f, 1));
