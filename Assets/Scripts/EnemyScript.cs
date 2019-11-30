@@ -59,7 +59,9 @@ public class EnemyScript : MonoBehaviour
             transform.position = Vector3.Lerp(thisPosition, -moveDirection * collider.GetComponent<BulletScript>().knockbackPower, .1f);
         }
     }
+
     
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         GameObject collider = GameObject.Find(collision.gameObject.name);
@@ -72,5 +74,4 @@ public class EnemyScript : MonoBehaviour
             }
         }
     }
-    
 }

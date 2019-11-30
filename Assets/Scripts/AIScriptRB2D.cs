@@ -11,7 +11,8 @@ public class AIScriptRB2D : MonoBehaviour
     public SpriteRenderer sr;
     private Vector2 _movement;
     public Animator animator;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
+    private bool isColided;
     
     private static readonly int Speed = Animator.StringToHash("Speed");
 
@@ -40,7 +41,6 @@ public class AIScriptRB2D : MonoBehaviour
         }
         
         MoveCharacter(_movement);
-  
     }
 
     void MoveCharacter(Vector2 direction)
@@ -49,7 +49,7 @@ public class AIScriptRB2D : MonoBehaviour
         var playerPosition = player.position;
         var distanceX = Math.Abs(playerPosition.x - position.x);
         var distanceY = playerPosition.y - position.y;
-        if (distanceX > 1.75f || Math.Abs(distanceY) > 1.87f || (distanceY>0 && Math.Abs(distanceY) > 1.5f))
+        if (!isColided)
         {
             animator.SetFloat(Speed, 1);
             position = Vector2.Lerp(position,
@@ -59,6 +59,22 @@ public class AIScriptRB2D : MonoBehaviour
         else
         {
             animator.SetFloat(Speed, 0);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            isColided = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            isColided = false;
         }
     }
 }
