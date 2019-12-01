@@ -17,6 +17,8 @@ public class EnemyScript : MonoBehaviour
     private float timer = 0;
     public float exp;
     public PlayerScript player;
+    public GameObject onHitParticle;
+    public GameObject onDeathParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class EnemyScript : MonoBehaviour
         if (currentHP < 1)
         {
             Destroy(gameObject);
+            Instantiate(onDeathParticle, transform.position, Quaternion.identity);
             ui.AddGold(goldWorth);
             player.AddExp(exp);
         }
@@ -50,8 +53,9 @@ public class EnemyScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collider = GameObject.Find(collision.gameObject.name);
-        if (collider.name.Substring(0, 1) == "B")
+        if (collider.CompareTag("Bullet"))
         {
+            Instantiate(onHitParticle, transform.position, Quaternion.identity);
             float damageDealt = collider.GetComponent<BulletScript>().damage;
             TakeDamage(damageDealt);
             var thisPosition = transform.position;
