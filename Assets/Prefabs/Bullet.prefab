@@ -121,6 +121,7 @@ MonoBehaviour:
     type: 3}
   trailParticle: {fileID: 3876093790947648987, guid: 946a321bf0dd7754a8fb0a05ad4e5788,
     type: 3}
+  travelTime: 1
 --- !u!61 &5339843312690943279
 BoxCollider2D:
   m_ObjectHideFlags: 0

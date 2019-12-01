@@ -12,21 +12,31 @@ public class BulletScript : MonoBehaviour
     private float timer;
 
     public GameObject trailParticle;
+
+    public float travelTime;
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(shotParticle, transform.position, Quaternion.identity);
+        GameObject x =  Instantiate(shotParticle, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Instantiate(trailParticle, transform.position, Quaternion.identity);
+        GameObject x = Instantiate(trailParticle, transform.position, Quaternion.identity);
+        x.transform.parent = gameObject.transform;
+        if (timer > travelTime)
+        {
+            Destroy(gameObject);
+            timer = 0;
+        }
+
+        timer += Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Border") || collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
