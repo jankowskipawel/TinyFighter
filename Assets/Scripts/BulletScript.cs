@@ -7,16 +7,21 @@ public class BulletScript : MonoBehaviour
 {
     public float knockbackPower;
     public float damage;
+    public GameObject shotParticle;
+
+    private float timer;
+
+    public GameObject trailParticle;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instantiate(shotParticle, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Instantiate(trailParticle, transform.position, Quaternion.identity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
