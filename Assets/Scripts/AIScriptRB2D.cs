@@ -15,6 +15,7 @@ public class AIScriptRB2D : MonoBehaviour
     private bool isColided;
     
     private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +34,11 @@ public class AIScriptRB2D : MonoBehaviour
         
         if (player.transform.position.x > transform.position.x)
         {
-            sr.flipX = true;
+            sr.flipX = false;
         }
         else
         {
-            sr.flipX = false;
+            sr.flipX = true;
         }
         
         MoveCharacter(_movement);
@@ -67,6 +68,7 @@ public class AIScriptRB2D : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isColided = true;
+            animator.SetFloat(IsAttacking, 1);
         }
     }
 
@@ -75,6 +77,7 @@ public class AIScriptRB2D : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isColided = false;
+            animator.SetFloat(IsAttacking, 0);
         }
     }
 }

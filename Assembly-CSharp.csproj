@@ -84,7 +84,6 @@
     <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
     <Compile Include="Assets\Scripts\AIScript.cs" />
     <Compile Include="Assets\Scripts\AIScriptRB2D.cs" />
-    <Compile Include="Assets\Scripts\BulletScript.cs" />
     <Compile Include="Assets\Scripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\ExpShowScript.cs" />
     <Compile Include="Assets\Scripts\GameHandler.cs" />
@@ -94,6 +93,7 @@
     <Compile Include="Assets\Scripts\HealthBarPlayerS.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\PointAndShoot.cs" />
+    <Compile Include="Assets\Scripts\SpellScript.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <None Include="Assets\CodeMonkey\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">

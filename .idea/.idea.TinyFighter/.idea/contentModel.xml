@@ -35,7 +35,6 @@
         <e p="Scripts" t="Include">
           <e p="AIScript.cs" t="Include" />
           <e p="AIScriptRB2D.cs" t="Include" />
-          <e p="BulletScript.cs" t="Include" />
           <e p="EnemyScript.cs" t="Include" />
           <e p="ExpShowScript.cs" t="Include" />
           <e p="GameHandler.cs" t="Include" />
@@ -45,6 +44,7 @@
           <e p="HealthBarPlayerS.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="PointAndShoot.cs" t="Include" />
+          <e p="SpellScript.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
         </e>
       </e>

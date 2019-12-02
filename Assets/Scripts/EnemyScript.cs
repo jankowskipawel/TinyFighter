@@ -14,7 +14,6 @@ public class EnemyScript : MonoBehaviour
     public float damage;
     private Rigidbody2D _rb;
     public float attackRate;
-    private float timer = 0;
     public float exp;
     public PlayerScript player;
     public GameObject onHitParticle;
@@ -34,7 +33,7 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         _rb.velocity = Vector2.zero;
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
     }
 
     public void TakeDamage(float damageTaken)
@@ -44,7 +43,7 @@ public class EnemyScript : MonoBehaviour
         if (currentHP < 1)
         {
             Destroy(gameObject);
-            Instantiate(onDeathParticle, transform.position, Quaternion.identity);
+            //Instantiate(onDeathParticle, transform.position, Quaternion.identity);
             ui.AddGold(goldWorth);
             player.AddExp(exp);
         }
@@ -53,29 +52,25 @@ public class EnemyScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collider = GameObject.Find(collision.gameObject.name);
-        if (collider.CompareTag("Bullet"))
+        if (collider.CompareTag("SpellProjectile"))
         {
-            Instantiate(onHitParticle, transform.position, Quaternion.identity);
-            float damageDealt = collider.GetComponent<BulletScript>().damage;
+            //Instantiate(onHitParticle, transform.position, Quaternion.identity);
+            float damageDealt = collider.GetComponent<SpellScript>().damage;
             TakeDamage(damageDealt);
             var thisPosition = transform.position;
             var moveDirection = player.transform.position - thisPosition;
-            transform.position = Vector3.Lerp(thisPosition, -moveDirection * collider.GetComponent<BulletScript>().knockbackPower, .1f);
+            transform.position = Vector3.Lerp(thisPosition, -moveDirection * collider.GetComponent<SpellScript>().knockbackPower, .1f);
         }
     }
 
-    
-
-    private void OnCollisionStay2D(Collision2D collision)
+    public void DealDamage()
     {
-        GameObject collider = GameObject.Find(collision.gameObject.name);
-        if (collider.CompareTag("Player"))
+        player.currentHP -= damage;
+        player.healthBar.SetSize(currentHP, maxHP);
+        if (player.currentHP < 0)
         {
-            while (timer > attackRate)
-            {
-                collider.GetComponent<PlayerScript>().DealDamage(damage);
-                timer = 0;
-            }
+            Destroy(player);
         }
     }
+    
 }
