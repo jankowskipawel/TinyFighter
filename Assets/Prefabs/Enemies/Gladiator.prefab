@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3377090937682941857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.1555, y: 1.0216, z: 54.142}
-  m_LocalScale: {x: 6.0798073, y: 6.0798073, z: 6.0798073}
+  m_LocalScale: {x: 4.5942674, y: 4.5942674, z: 4.5942674}
   m_Children:
   - {fileID: 3377090938087164945}
   m_Father: {fileID: 0}
@@ -156,6 +156,7 @@ MonoBehaviour:
   onDeathParticle: {fileID: 0}
   knockbackResistance: 500
   isKnockbackable: 0
+  animator: {fileID: 5228290456883025136}
 --- !u!114 &3377090937682941858
 MonoBehaviour:
   m_ObjectHideFlags: 0

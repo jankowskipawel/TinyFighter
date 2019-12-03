@@ -16,6 +16,7 @@ public class AIScriptRB2D : MonoBehaviour
     
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
+    private static readonly int IsDead = Animator.StringToHash("isDead");
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class AIScriptRB2D : MonoBehaviour
         direction.Normalize();
         _movement = direction;
         
-        if (player.transform.position.x > transform.position.x)
+        if (player.transform.position.x > transform.position.x && !animator.GetBool(IsDead))
         {
             sr.flipX = false;
         }
@@ -40,8 +41,11 @@ public class AIScriptRB2D : MonoBehaviour
         {
             sr.flipX = true;
         }
-        
-        MoveCharacter(_movement);
+
+        if (!animator.GetBool(IsDead))
+        {
+            MoveCharacter(_movement);
+        }
     }
 
     void MoveCharacter(Vector2 direction)

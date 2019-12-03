@@ -20,6 +20,10 @@ public class EnemyScript : MonoBehaviour
     public GameObject onDeathParticle;
     public float knockbackResistance;
     public bool isKnockbackable;
+    public Animator animator;
+    private static readonly int IsDead = Animator.StringToHash("isDead");
+    private static readonly int Hit = Animator.StringToHash("hit");
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -35,19 +39,28 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         _rb.velocity = Vector2.zero;
-        //timer += Time.deltaTime;
+        timer += Time.deltaTime;
+        if (timer > 0.15)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 
     public void TakeDamage(float damageTaken)
     {
         currentHP -= damageTaken;
-        healthBar.SetSize(currentHP/maxHP);
         if (currentHP < 1)
         {
-            Destroy(gameObject);
+            healthBar.SetSize(0/maxHP);
+            animator.SetBool(IsDead, true);
+            
             //Instantiate(onDeathParticle, transform.position, Quaternion.identity);
             ui.AddGold(goldWorth);
             player.AddExp(exp);
+        }
+        else
+        {
+            healthBar.SetSize(currentHP/maxHP);
         }
     }
 
@@ -58,6 +71,9 @@ public class EnemyScript : MonoBehaviour
         {
             //Instantiate(onHitParticle, transform.position, Quaternion.identity);
             float damageDealt = collider.GetComponent<SpellScript>().damage;
+            animator.SetTrigger(Hit);
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            timer = 0;
             TakeDamage(damageDealt);
             if (isKnockbackable)
             {
@@ -76,6 +92,11 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(player);
         }
+    }
+
+    public void DestroyYourself()
+    {
+        Destroy(gameObject);
     }
     
 }
