@@ -123,7 +123,7 @@ MonoBehaviour:
   trailParticle: {fileID: 3876093790947648987, guid: 946a321bf0dd7754a8fb0a05ad4e5788,
     type: 3}
   spellSpeed: 8
-  travelTime: 1.5
+  travelTime: 0.5
   animator: {fileID: 5905558028572845292}
 --- !u!61 &2012597277020533185
 BoxCollider2D:

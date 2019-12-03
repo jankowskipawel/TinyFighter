@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - UI
   - SpellProjectile
+  - MapCollision
   layers:
   - Default
   - TransparentFX
