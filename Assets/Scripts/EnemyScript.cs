@@ -18,6 +18,8 @@ public class EnemyScript : MonoBehaviour
     public PlayerScript player;
     public GameObject onHitParticle;
     public GameObject onDeathParticle;
+    public float knockbackResistance;
+    public bool isKnockbackable;
 
     // Start is called before the first frame update
     void Start()
@@ -57,9 +59,12 @@ public class EnemyScript : MonoBehaviour
             //Instantiate(onHitParticle, transform.position, Quaternion.identity);
             float damageDealt = collider.GetComponent<SpellScript>().damage;
             TakeDamage(damageDealt);
-            var thisPosition = transform.position;
-            var moveDirection = player.transform.position - thisPosition;
-            transform.position = Vector3.Lerp(thisPosition, -moveDirection * collider.GetComponent<SpellScript>().knockbackPower, .1f);
+            if (isKnockbackable)
+            {
+                var thisPosition = transform.position;
+                var moveDirection = player.transform.position - thisPosition;
+                transform.position = Vector3.Lerp(thisPosition, 1/knockbackResistance * collider.GetComponent<SpellScript>().knockbackPower*-moveDirection, .1f);
+            }
         }
     }
 

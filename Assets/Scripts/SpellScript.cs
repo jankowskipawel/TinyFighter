@@ -10,11 +10,12 @@ public class SpellScript : MonoBehaviour
     public GameObject shotParticle;
 
     private float timer;
-
     public GameObject trailParticle;
     public float spellSpeed;
-
     public float travelTime;
+    public Animator animator;
+    private static readonly int IsDestroyed = Animator.StringToHash("isDestroyed");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,9 @@ public class SpellScript : MonoBehaviour
         //x.transform.parent = gameObject.transform;
         if (timer > travelTime)
         {
-            Destroy(gameObject);
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            gameObject.GetComponent<BoxCollider2D>().size = Vector2.zero;
+            animator.SetBool(IsDestroyed, true);
             timer = 0;
         }
 
@@ -39,7 +42,14 @@ public class SpellScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            gameObject.GetComponent<BoxCollider2D>().size = Vector2.zero;
+            animator.SetBool(IsDestroyed, true);
         }
+    }
+
+    public void DestroyYourself()
+    {
+        Destroy(gameObject);
     }
 }

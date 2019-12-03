@@ -12118,11 +12118,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 541382473}
-    - target: {fileID: 3807627437300967174, guid: ad1f959943d9c794da9dbd4bca782242,
-        type: 3}
-      propertyPath: maxHP
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 3807627437300967175, guid: ad1f959943d9c794da9dbd4bca782242,
         type: 3}
       propertyPath: player

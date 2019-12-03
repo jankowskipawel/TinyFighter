@@ -124,6 +124,7 @@ MonoBehaviour:
     type: 3}
   spellSpeed: 8
   travelTime: 1.5
+  animator: {fileID: 5905558028572845292}
 --- !u!61 &2012597277020533185
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ac21deb33bd534ebfdebff32705e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 500
+  maxHP: 60
   goldWorth: 20
   ui: {fileID: 0}
   healthBar: {fileID: 3807627438490190020}
@@ -61,6 +61,8 @@ MonoBehaviour:
     type: 3}
   onDeathParticle: {fileID: 1389271386850552040, guid: 9a103ae27cf546442a801abdffe23a18,
     type: 3}
+  knockbackResistance: 1
+  isKnockbackable: 1
 --- !u!50 &3807627437300967181
 Rigidbody2D:
   serializedVersion: 4
