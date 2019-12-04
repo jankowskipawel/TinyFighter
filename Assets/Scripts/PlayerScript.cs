@@ -22,7 +22,8 @@ public class PlayerScript : MonoBehaviour
     public float maxExp = 2;
     private int level;
     public int skillPoints;
-    
+    private static readonly int IsDead = Animator.StringToHash("isDead");
+
 
     // Start is called before the first frame update
     void Start()
@@ -74,16 +75,6 @@ public class PlayerScript : MonoBehaviour
         healthBar.SetSize(currentHP, maxHP);
     }
 
-    public void DealDamage(float damage)
-    {
-        currentHP -= damage;
-        healthBar.SetSize(currentHP, maxHP);
-        if (currentHP < 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void AddExp(float exp)
     {
         if (currentExp + exp >= maxExp)
@@ -104,5 +95,10 @@ public class PlayerScript : MonoBehaviour
     private void SetExpBar(float percentage)
     {
         expBar.value = percentage;
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 }

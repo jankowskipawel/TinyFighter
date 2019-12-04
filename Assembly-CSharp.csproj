@@ -84,6 +84,7 @@
     <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
     <Compile Include="Assets\Scripts\AIScript.cs" />
     <Compile Include="Assets\Scripts\AIScriptRB2D.cs" />
+    <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\ExpShowScript.cs" />
     <Compile Include="Assets\Scripts\GameHandler.cs" />

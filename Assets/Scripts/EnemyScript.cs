@@ -87,10 +87,9 @@ public class EnemyScript : MonoBehaviour
     public void DealDamage()
     {
         player.currentHP -= damage;
-        player.healthBar.SetSize(currentHP, maxHP);
         if (player.currentHP < 0)
         {
-            Destroy(player);
+            player.animator.SetBool(IsDead, true);
         }
     }
 
