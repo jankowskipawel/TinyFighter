@@ -46,6 +46,7 @@
           <e p="PlayerScript.cs" t="Include" />
           <e p="PointAndShoot.cs" t="Include" />
           <e p="SpellScript.cs" t="Include" />
+          <e p="TowerScript.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
         </e>
       </e>
