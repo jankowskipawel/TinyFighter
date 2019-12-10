@@ -46,6 +46,7 @@ public class SpellScript : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().size = Vector2.zero;
             animator.SetBool(IsDestroyed, true);
         }
+
     }
 
     public void DestroyYourself()

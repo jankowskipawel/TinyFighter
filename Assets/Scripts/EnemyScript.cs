@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using Random = System.Random;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -24,10 +25,12 @@ public class EnemyScript : MonoBehaviour
     private static readonly int IsDead = Animator.StringToHash("isDead");
     private static readonly int Hit = Animator.StringToHash("hit");
     private float timer;
+    private int ID;
 
     // Start is called before the first frame update
     void Start()
     {
+        ID = SetID();
         attackRate = 1 / attackRate;
         currentHP = maxHP;
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -97,5 +100,15 @@ public class EnemyScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    
+
+    private int SetID()
+    {
+        Random rand = new Random(DateTime.Now.Millisecond);
+        return rand.Next();
+    }
+
+    public int GetID()
+    {
+        return ID;
+    }
 }
