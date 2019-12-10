@@ -62,7 +62,7 @@ MonoBehaviour:
   onDeathParticle: {fileID: 1389271386850552040, guid: 9a103ae27cf546442a801abdffe23a18,
     type: 3}
   knockbackResistance: 1
-  isKnockbackable: 1
+  isKnockbackable: 0
   animator: {fileID: 3807627437300967176}
 --- !u!50 &3807627437300967181
 Rigidbody2D:

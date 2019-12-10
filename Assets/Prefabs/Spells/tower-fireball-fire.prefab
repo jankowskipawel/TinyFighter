@@ -77,6 +77,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 900
       objectReference: {fileID: 0}
+    - target: {fileID: 4530191631921777621, guid: 25102fe50a0a446458a4670700f28227,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6352537661819749464, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
       propertyPath: travelTime
