@@ -96,4 +96,11 @@ public class EnemyScript : MonoBehaviour
         player.AddExp(exp);
         Destroy(gameObject);
     }
+
+    public void RemoveColission()
+    {
+        GameObject o = gameObject;
+        o.GetComponent<BoxCollider2D>().size = Vector2.zero;
+        o.tag = "Untagged";
+    }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6352537661819749464}
   - component: {fileID: 2012597277020533185}
   - component: {fileID: 5905558028572845292}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: fireball-fire
   m_TagString: SpellProjectile
   m_Icon: {fileID: 0}
