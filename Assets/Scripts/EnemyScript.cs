@@ -93,7 +93,6 @@ public class EnemyScript : MonoBehaviour
     public void DestroyYourself()
     {
         ui.AddGold(goldWorth);
-        player.AddExp(exp);
         Destroy(gameObject);
     }
 
@@ -102,5 +101,6 @@ public class EnemyScript : MonoBehaviour
         GameObject o = gameObject;
         o.GetComponent<BoxCollider2D>().size = Vector2.zero;
         o.tag = "Untagged";
+        player.AddExp(exp);
     }
 }

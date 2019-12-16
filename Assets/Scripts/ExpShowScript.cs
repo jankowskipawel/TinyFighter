@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Text expText;
+    public Text levelText;
 
     public GameObject player;
 
@@ -28,12 +29,15 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         SetExpText(player.GetComponent<PlayerScript>().currentExp, player.GetComponent<PlayerScript>().maxExp);
+        levelText.gameObject.SetActive(false);
         expText.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         expText.gameObject.SetActive(false);
+        levelText.gameObject.SetActive(true);
+
     }
     
     public void SetExpText(float currentExp, float maxExp)

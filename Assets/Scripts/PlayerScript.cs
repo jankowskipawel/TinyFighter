@@ -20,14 +20,18 @@ public class PlayerScript : MonoBehaviour
     public float healthRegen;
     public float currentExp = 0;
     public float maxExp = 2;
-    private int level;
+    private int level = 1;
     public int skillPoints;
     private static readonly int IsDead = Animator.StringToHash("isDead");
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    public Text levelText;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        SetLevelText(level);
         currentHP = maxHP;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -44,29 +48,29 @@ public class PlayerScript : MonoBehaviour
         
         if (h > 0)
         {
-            animator.SetFloat("Speed", Mathf.Abs(h));
+            animator.SetFloat(Speed, 1);
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
         
         if (h < 0)
         {
-            animator.SetFloat("Speed", Mathf.Abs(h));
+            animator.SetFloat(Speed, 1);
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         
         if (v > 0)
         {
-            animator.SetFloat("Speed", Mathf.Abs(v));
+            animator.SetFloat(Speed, 1);
         }
         
         if (v < 0)
         {
-            animator.SetFloat("Speed", Mathf.Abs(v));
+            animator.SetFloat(Speed, 1);
         }
 
-        if (h == 0)
+        if (h == 0 && v == 0)
         {
-            animator.SetFloat("Speed", 0);
+            animator.SetFloat(Speed, 0);
         }
         if (currentHP <= maxHP)
         {
@@ -82,6 +86,7 @@ public class PlayerScript : MonoBehaviour
             currentExp += exp;
             currentExp -= maxExp;
             level++;
+            SetLevelText(level);
             skillPoints++;
             maxExp *= 2;
         }
@@ -100,5 +105,10 @@ public class PlayerScript : MonoBehaviour
     public void Death()
     {
         Destroy(gameObject);
+    }
+    
+    public void SetLevelText(int level)
+    {
+        levelText.text = $"Level {level}";
     }
 }

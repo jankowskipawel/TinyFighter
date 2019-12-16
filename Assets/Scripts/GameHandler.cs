@@ -8,20 +8,37 @@ public class GameHandler : MonoBehaviour
 {
     public GameObject[] enemies;
 
-    private int enemiesCount;
+    public int enemiesLeft;
+
+    public int waveNumber;
+    public UIManager ui;
+    private int _spawnMultiplier = 2;
+
     // Start is called before the first frame update
     private void Start()
     {
-        
+        waveNumber = 1;
+        ui.SetWave(waveNumber);
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemiesCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if (enemiesCount < 2)
+        enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        ui.SetEnemiesCount(enemiesLeft);
+        if (enemiesLeft == 0)
         {
-            SpawnEnemies(30);
+            SpawnEnemies(5+_spawnMultiplier);
+            if (waveNumber % 10 == 0)
+            {
+                _spawnMultiplier = 2;
+            }
+            else
+            {
+                _spawnMultiplier += 2;
+            }
+            waveNumber++;
+            ui.SetWave(waveNumber);
         }
     }
 
