@@ -9,15 +9,10 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     public float speed;
-    public float maxHP;
-    public float currentHP;
-    public HealthBarPlayerS healthBar;
     public Slider expBar;
     private Rigidbody2D rb;
     public Animator animator;
     public int gold;
-    private float healthPrecentage;
-    public float healthRegen;
     public float currentExp = 0;
     public float maxExp = 2;
     private int level = 1;
@@ -32,7 +27,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         SetLevelText(level);
-        currentHP = maxHP;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -72,11 +66,7 @@ public class PlayerScript : MonoBehaviour
         {
             animator.SetFloat(Speed, 0);
         }
-        if (currentHP <= maxHP)
-        {
-            currentHP += healthRegen * Time.deltaTime;
-        }
-        healthBar.SetSize(currentHP, maxHP);
+        
     }
 
     public void AddExp(float exp)

@@ -16,6 +16,7 @@ public class EnemyScript : MonoBehaviour
     public float attackRate;
     public float exp;
     public PlayerScript player;
+    public BaseScript baseScript;
     public GameObject onHitParticle;
     public GameObject onDeathParticle;
     public float knockbackResistance;
@@ -33,6 +34,7 @@ public class EnemyScript : MonoBehaviour
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<PlayerScript>();
+        baseScript = GameObject.Find("Base").GetComponent<BaseScript>();
     }
 
     // Update is called once per frame
@@ -83,11 +85,11 @@ public class EnemyScript : MonoBehaviour
 
     public void DealDamage()
     {
-        player.currentHP -= damage;
-        if (player.currentHP < 0)
+        baseScript.currentHP -= damage;
+        /*if (baseScript.currentHP < 0)
         {
-            player.animator.SetBool(IsDead, true);
-        }
+            //player.animator.SetBool(IsDead, true);
+        }*/
     }
     
     public void DestroyYourself()

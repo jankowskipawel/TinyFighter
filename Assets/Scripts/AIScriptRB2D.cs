@@ -13,6 +13,8 @@ public class AIScriptRB2D : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     private bool isColided;
+    public Transform basePosition;
+    private Transform target;
     
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
@@ -22,18 +24,20 @@ public class AIScriptRB2D : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
+        basePosition = GameObject.Find("Base").transform;
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        target = basePosition;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
+        Vector3 direction = target.position - transform.position;
         direction.Normalize();
         _movement = direction;
         
-        if (player.transform.position.x > transform.position.x && !animator.GetBool(IsDead))
+        if (target.transform.position.x > transform.position.x && !animator.GetBool(IsDead))
         {
             sr.flipX = false;
         }
@@ -46,14 +50,16 @@ public class AIScriptRB2D : MonoBehaviour
         {
             MoveCharacter(_movement);
         }
+
+        target = basePosition;
     }
 
     void MoveCharacter(Vector2 direction)
     {
         var position = transform.position;
-        var playerPosition = player.position;
-        var distanceX = Math.Abs(playerPosition.x - position.x);
-        var distanceY = playerPosition.y - position.y;
+        var targetPosition = target.position;
+        var distanceX = Math.Abs(targetPosition.x - position.x);
+        var distanceY = targetPosition.y - position.y;
         if (!isColided)
         {
             animator.SetFloat(Speed, 1);
@@ -69,7 +75,13 @@ public class AIScriptRB2D : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        /*if(collision.gameObject.CompareTag("Player"))
+        {
+            isColided = true;
+            animator.SetFloat(IsAttacking, 1);
+        }*/
+        
+        if(collision.gameObject.CompareTag("Base"))
         {
             isColided = true;
             animator.SetFloat(IsAttacking, 1);
@@ -78,9 +90,14 @@ public class AIScriptRB2D : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        /*if(collision.gameObject.CompareTag("Player"))
         {
             isColided = false;
+            animator.SetFloat(IsAttacking, 0);
+        }*/
+        if(collision.gameObject.CompareTag("Base"))
+        {
+            isColided = true;
             animator.SetFloat(IsAttacking, 0);
         }
     }

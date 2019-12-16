@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class HealthBarPlayerS : MonoBehaviour
 {
-    public PlayerScript player;
+    public BaseScript baseScript;
     public Image fill;
     public Slider healthSlider;
     public Text healthText;
     // Start is called before the first frame update
     void Start()
     {
-        SetSize(player.currentHP, player.maxHP);
+        SetSize(baseScript.currentHP, baseScript.maxHP);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float healthPercentage = player.currentHP / player.maxHP;
+        float healthPercentage = baseScript.currentHP / baseScript.maxHP;
         if (healthPercentage <= 0.9f)
         {
             fill.color = new Color(0.647f, 1f, 0f, 1);
@@ -41,7 +41,7 @@ public class HealthBarPlayerS : MonoBehaviour
             fill.color = new Color(0f, 1f, 0f, 1);
         }
 
-        healthText.text = $"{Mathf.Round(player.currentHP)} / {Mathf.Round(player.maxHP)}";
+        healthText.text = $"{Mathf.Round(baseScript.currentHP)} / {Mathf.Round(baseScript.maxHP)}";
     }
     
     public void SetSize(float a, float b)

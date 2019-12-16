@@ -57,6 +57,7 @@ MonoBehaviour:
   attackRate: 1.66
   exp: 2
   player: {fileID: 0}
+  baseScript: {fileID: 0}
   onHitParticle: {fileID: 2881654251061294670, guid: 8e807f8b4c496d44399c22616d98e095,
     type: 3}
   onDeathParticle: {fileID: 1389271386850552040, guid: 9a103ae27cf546442a801abdffe23a18,
@@ -98,10 +99,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveSpeed: 1
+  moveSpeed: 3
   sr: {fileID: 0}
   animator: {fileID: 3807627437300967176}
   rb: {fileID: 3807627437300967181}
+  basePosition: {fileID: 0}
 --- !u!95 &3807627437300967176
 Animator:
   serializedVersion: 3
