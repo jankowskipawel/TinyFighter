@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{38E4E8BE-D4C7-2D5C-E6B5-E7635B1C01A0}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AIScriptRB2D.cs">
+    <Files>
+      <File FileName="Assets/Scripts/AIScriptRB2D.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TinyFighter" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="AIScriptRB2D.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="70e90f0a-193b-4234-bdc7-a038fb2aa310" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

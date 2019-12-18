@@ -15,7 +15,10 @@ public class AIScriptRB2D : MonoBehaviour
     private bool isColided;
     public Transform basePosition;
     private Transform target;
-    
+    public bool isRanged;
+    public float attackRange = 0;
+    private float distanceFromBase;
+
     private static readonly int Speed = Animator.StringToHash("Speed");
     private static readonly int IsAttacking = Animator.StringToHash("isAttacking");
     private static readonly int IsDead = Animator.StringToHash("isDead");
@@ -33,10 +36,14 @@ public class AIScriptRB2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = target.position - transform.position;
+        var position = transform.position;
+        Vector3 direction = target.position - position;
         direction.Normalize();
         _movement = direction;
-        
+        if (isRanged)
+        {
+            distanceFromBase = Vector2.Distance(basePosition.position, position);
+        }
         if (target.transform.position.x > transform.position.x && !animator.GetBool(IsDead))
         {
             sr.flipX = false;
@@ -46,7 +53,7 @@ public class AIScriptRB2D : MonoBehaviour
             sr.flipX = true;
         }
 
-        if (!animator.GetBool(IsDead))
+        if (!animator.GetBool(IsDead) && distanceFromBase >= attackRange)
         {
             MoveCharacter(_movement);
         }
