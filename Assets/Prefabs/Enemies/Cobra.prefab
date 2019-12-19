@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3807627437300967176}
   - component: {fileID: 3807627437300967172}
   - component: {fileID: 3807627437300967179}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cobra
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -58,6 +58,7 @@ MonoBehaviour:
   exp: 2
   player: {fileID: 0}
   baseScript: {fileID: 0}
+  baseObject: {fileID: 0}
   onHitParticle: {fileID: 2881654251061294670, guid: 8e807f8b4c496d44399c22616d98e095,
     type: 3}
   onDeathParticle: {fileID: 1389271386850552040, guid: 9a103ae27cf546442a801abdffe23a18,
@@ -65,6 +66,7 @@ MonoBehaviour:
   knockbackResistance: 1
   isKnockbackable: 0
   animator: {fileID: 3807627437300967176}
+  attackProjectile: {fileID: 0}
 --- !u!50 &3807627437300967181
 Rigidbody2D:
   serializedVersion: 4
@@ -104,6 +106,8 @@ MonoBehaviour:
   animator: {fileID: 3807627437300967176}
   rb: {fileID: 3807627437300967181}
   basePosition: {fileID: 0}
+  isRanged: 0
+  attackRange: 0
 --- !u!95 &3807627437300967176
 Animator:
   serializedVersion: 3
@@ -207,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3807627438738668016}
   - component: {fileID: 3807627438490190020}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3807627438085623189}
   - component: {fileID: 3807627438085623188}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3807627438163436493}
   - component: {fileID: 3807627438163436492}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3807627438479278961}
   - component: {fileID: 3807627438479278960}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BarSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3807627438606986806}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

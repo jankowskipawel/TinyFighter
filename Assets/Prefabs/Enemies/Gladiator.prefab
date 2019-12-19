@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3377090937682941859}
   - component: {fileID: 3377090937682941858}
   - component: {fileID: 5228290456883025136}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Gladiator
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -153,11 +153,13 @@ MonoBehaviour:
   exp: 3
   player: {fileID: 0}
   baseScript: {fileID: 0}
+  baseObject: {fileID: 0}
   onHitParticle: {fileID: 0}
   onDeathParticle: {fileID: 0}
   knockbackResistance: 500
   isKnockbackable: 0
   animator: {fileID: 5228290456883025136}
+  attackProjectile: {fileID: 0}
 --- !u!114 &3377090937682941858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +178,8 @@ MonoBehaviour:
   animator: {fileID: 5228290456883025136}
   rb: {fileID: 3377090937682941885}
   basePosition: {fileID: 0}
+  isRanged: 0
+  attackRange: 0
 --- !u!95 &5228290456883025136
 Animator:
   serializedVersion: 3
@@ -205,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377090937870837661}
   - component: {fileID: 3377090937870837662}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BarSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377090938087164945}
   - component: {fileID: 3377090938087164946}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3377090938866819374}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377090938916688383}
   - component: {fileID: 3377090938916688376}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -440,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377090938965208940}
   - component: {fileID: 3377090938965208941}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
