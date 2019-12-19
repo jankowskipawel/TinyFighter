@@ -57,6 +57,11 @@ public class AIScriptRB2D : MonoBehaviour
         {
             MoveCharacter(_movement);
         }
+        else
+        {
+            animator.SetFloat(Speed, 0);
+            animator.SetFloat(IsAttacking, 1);
+        }
 
         target = basePosition;
     }

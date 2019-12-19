@@ -17,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     public float exp;
     public PlayerScript player;
     public BaseScript baseScript;
+    public GameObject baseObject;
     public GameObject onHitParticle;
     public GameObject onDeathParticle;
     public float knockbackResistance;
@@ -25,6 +26,7 @@ public class EnemyScript : MonoBehaviour
     private static readonly int IsDead = Animator.StringToHash("isDead");
     private static readonly int Hit = Animator.StringToHash("hit");
     private float timer;
+    public GameObject attackProjectile;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +36,8 @@ public class EnemyScript : MonoBehaviour
         ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<PlayerScript>();
-        baseScript = GameObject.Find("Base").GetComponent<BaseScript>();
+        baseObject = GameObject.Find("Base");
+        baseScript = baseObject.GetComponent<BaseScript>();
     }
 
     // Update is called once per frame
@@ -104,5 +107,19 @@ public class EnemyScript : MonoBehaviour
         o.GetComponent<BoxCollider2D>().size = Vector2.zero;
         o.tag = "Untagged";
         player.AddExp(exp);
+    }
+
+    public void RangeAttack()
+    {
+        GameObject b = Instantiate(attackProjectile);
+        var position = transform.position;
+        Vector3 difference = baseObject.transform.position - position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        b.transform.position = position;
+        b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        float distance = difference.magnitude;
+        Vector2 direction = difference / distance;
+        direction.Normalize();
+        b.GetComponent<Rigidbody2D>().velocity = direction * 10;
     }
 }

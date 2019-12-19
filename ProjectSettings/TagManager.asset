@@ -11,6 +11,7 @@ TagManager:
   - SpellProjectile
   - MapCollision
   - Base
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Player
   - Projectile
   - DeadEnemy
-  - 
+  - EnemyProjectile
   - 
   - 
   - 
