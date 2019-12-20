@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     private static readonly int IsDead = Animator.StringToHash("isDead");
     private static readonly int Speed = Animator.StringToHash("Speed");
     public Text levelText;
+    public GameObject levelUpAnimation;
 
 
 
@@ -73,6 +74,8 @@ public class PlayerScript : MonoBehaviour
     {
         if (currentExp + exp >= maxExp)
         {
+            var g = Instantiate(levelUpAnimation, transform.position, Quaternion.identity);
+            g.transform.parent = gameObject.transform;
             currentExp += exp;
             currentExp -= maxExp;
             level++;

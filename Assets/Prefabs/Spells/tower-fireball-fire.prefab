@@ -12,20 +12,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: tower-fireball-fire
       objectReference: {fileID: 0}
-    - target: {fileID: 5266646295958613938, guid: 25102fe50a0a446458a4670700f28227,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.73666
+      value: -17.829544
       objectReference: {fileID: 0}
     - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.129131
+      value: -32.334362
       objectReference: {fileID: 0}
     - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
@@ -84,13 +79,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6352537661819749464, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
-      propertyPath: travelTime
-      value: 5
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6352537661819749464, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
-      propertyPath: damage
-      value: 10
+      propertyPath: travelTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25102fe50a0a446458a4670700f28227, type: 3}

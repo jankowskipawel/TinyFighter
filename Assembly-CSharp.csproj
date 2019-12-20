@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\AIScriptRB2D.cs" />
     <Compile Include="Assets\Scripts\BaseScript.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
+    <Compile Include="Assets\Scripts\DestroyScript.cs" />
     <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
     <Compile Include="Assets\Scripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\ExpShowScript.cs" />

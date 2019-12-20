@@ -11,6 +11,7 @@
           <e p="AIScriptRB2D.cs" t="Include" />
           <e p="BaseScript.cs" t="Include" />
           <e p="CameraScript.cs" t="Include" />
+          <e p="DestroyScript.cs" t="Include" />
           <e p="EnemyProjectile.cs" t="Include" />
           <e p="EnemyScript.cs" t="Include" />
           <e p="ExpShowScript.cs" t="Include" />
