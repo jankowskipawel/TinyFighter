@@ -18,6 +18,11 @@ public class TowerScript : MonoBehaviour
     public float towerRange;
 
     public GameObject rangeCircle;
+
+    public Animator animator;
+
+    private static readonly int Attack1 = Animator.StringToHash("attack");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +42,7 @@ public class TowerScript : MonoBehaviour
                     if (Vector3.Distance(transform.position, enemy.transform.position) < towerRange)
                     {
                         Attack(enemy.transform.position);
+                        animator.SetTrigger(Attack1);
                         break;
                     }
                 }
