@@ -12,15 +12,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: tower-fireball-fire
       objectReference: {fileID: 0}
+    - target: {fileID: 4530191631921777621, guid: 25102fe50a0a446458a4670700f28227,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750202178006631884, guid: 25102fe50a0a446458a4670700f28227,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352537661819749464, guid: 25102fe50a0a446458a4670700f28227,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352537661819749464, guid: 25102fe50a0a446458a4670700f28227,
+        type: 3}
+      propertyPath: travelTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.829544
+      value: -11.43845
       objectReference: {fileID: 0}
     - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -32.334362
+      value: -24.02647
       objectReference: {fileID: 0}
     - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
@@ -67,25 +87,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 40.010002
       objectReference: {fileID: 0}
-    - target: {fileID: 6750202178006631884, guid: 25102fe50a0a446458a4670700f28227,
+    - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 900
+      propertyPath: m_LocalScale.x
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 4530191631921777621, guid: 25102fe50a0a446458a4670700f28227,
+    - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
-      propertyPath: m_Constraints
-      value: 4
+      propertyPath: m_LocalScale.y
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 6352537661819749464, guid: 25102fe50a0a446458a4670700f28227,
+    - target: {fileID: 7569113419152609486, guid: 25102fe50a0a446458a4670700f28227,
         type: 3}
-      propertyPath: damage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6352537661819749464, guid: 25102fe50a0a446458a4670700f28227,
-        type: 3}
-      propertyPath: travelTime
-      value: 5
+      propertyPath: m_LocalScale.z
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25102fe50a0a446458a4670700f28227, type: 3}

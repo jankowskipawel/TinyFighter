@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4440020038900132868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.14453912, y: -26.055294, z: 62.714844}
-  m_LocalScale: {x: 8.7797, y: 8.7797, z: 8.7797}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
   damage: 10
   shotParticle: {fileID: 0}
   trailParticle: {fileID: 0}
-  spellSpeed: 8
-  travelTime: 2
+  spellSpeed: 16
+  travelTime: 0.6
   animator: {fileID: 4440020038900132872}
 --- !u!61 &4440020038900132873
 BoxCollider2D:

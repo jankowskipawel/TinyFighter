@@ -16,10 +16,11 @@ public class TowerScript : MonoBehaviour
     private GameObject[] enemiesInRange;
 
     public float towerRange;
+
+    public GameObject rangeCircle;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -48,6 +49,7 @@ public class TowerScript : MonoBehaviour
     {
         GameObject b = Instantiate(attackPrefab) as GameObject;
         var position = transform.position;
+        position.y += 1;
         Vector3 difference = targetPos - position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         b.transform.position = position;
@@ -61,5 +63,15 @@ public class TowerScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         Physics2D.IgnoreCollision(collision.collider, collision.otherCollider);
+    }
+
+    private void OnMouseEnter()
+    {
+        rangeCircle.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        rangeCircle.SetActive(false);
     }
 }
