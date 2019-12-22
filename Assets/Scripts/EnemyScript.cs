@@ -33,7 +33,7 @@ public class EnemyScript : MonoBehaviour
     {
         attackRate = 1 / attackRate;
         currentHP = maxHP;
-        ui = GameObject.Find("Canvas").GetComponent<UIManager>();
+        ui = GameObject.Find("CanvasUI").GetComponent<UIManager>();
         _rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<PlayerScript>();
         baseObject = GameObject.Find("Base");
