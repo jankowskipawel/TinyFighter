@@ -11,6 +11,7 @@ public class PointAndShoot : MonoBehaviour
     public GameObject hand;
     public float spellSpeed;
     public GameObject spellStart;
+    public CursorChangeScript cursorChangeSctript;
     
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class PointAndShoot : MonoBehaviour
         hand.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !cursorChangeSctript.GetIsOverUI())
         {
             float distance = difference.magnitude;
             Vector2 direction = difference / distance;

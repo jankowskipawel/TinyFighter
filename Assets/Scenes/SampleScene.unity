@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 91937759}
   - component: {fileID: 91937758}
   - component: {fileID: 91937757}
+  - component: {fileID: 91937760}
   m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
@@ -313,7 +314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.2, y: 3.7}
+  m_AnchoredPosition: {x: -67.5, y: 3.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91937757
@@ -366,6 +367,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91937755}
   m_CullTransparentMesh: 0
+--- !u!114 &91937760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91937755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728861c187eb2644c9d66ff88f43890b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 1651294593}
+  cursorOverUI: {fileID: 21300000, guid: c9fc8ffb0e6203c4887f9fa37159a450, type: 3}
 --- !u!1 &114846786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1100,7 @@ MonoBehaviour:
   hand: {fileID: 1951839354}
   spellSpeed: 60
   spellStart: {fileID: 2083484595}
+  cursorChangeSctript: {fileID: 91937760}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -43010,7 +43026,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 565612281
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a56e596398cbe16468b2a55252c3db2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -44158,8 +44174,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 999
+  m_SortingLayerID: 565612281
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &2036506993
 GameObject:
