@@ -12,6 +12,7 @@ TagManager:
   - MapCollision
   - Base
   - EnemyProjectile
+  - Tower
   layers:
   - Default
   - TransparentFX

@@ -80,4 +80,25 @@ public class TowerScript : MonoBehaviour
     {
         rangeCircle.SetActive(false);
     }
+
+    private void OnMouseDown()
+    {
+        IncreaseRange();
+    }
+
+    public void IncreaseRange()
+    {
+        if (towerRange < 61.38)
+        {
+            if (towerRange + 0.1f > 61.38)
+            {
+                towerRange = 61.38f;
+            }
+            else
+            {
+                towerRange += 0.1f;
+            }
+            rangeCircle.transform.localScale += new Vector3(0.018f, 0.018f, 0.018f);
+        } 
+    }
 }
