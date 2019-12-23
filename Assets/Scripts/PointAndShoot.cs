@@ -11,7 +11,7 @@ public class PointAndShoot : MonoBehaviour
     public GameObject hand;
     public float spellSpeed;
     public GameObject spellStart;
-    public CursorChangeScript cursorChangeSctript;
+    private bool isOverUI = false;
     
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class PointAndShoot : MonoBehaviour
         hand.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
 
-        if (Input.GetMouseButtonDown(0) && !cursorChangeSctript.GetIsOverUI())
+        if (Input.GetMouseButtonDown(0) && !isOverUI)
         {
             float distance = difference.magnitude;
             Vector2 direction = difference / distance;
@@ -47,5 +47,9 @@ public class PointAndShoot : MonoBehaviour
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         b.GetComponent<Rigidbody2D>().velocity = direction * spellSpeed;
     }
-    
+
+    public void SetIsOverUI(bool value)
+    {
+        isOverUI = value;
+    }
 }

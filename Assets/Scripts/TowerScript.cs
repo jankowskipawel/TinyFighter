@@ -23,9 +23,16 @@ public class TowerScript : MonoBehaviour
 
     private static readonly int Attack1 = Animator.StringToHash("attack");
 
+    public GameObject TowerUI;
+    private SpriteRenderer cursorCrosshair;
+    private Sprite cursorSprite;
+
     // Start is called before the first frame update
     void Start()
     {
+        cursorCrosshair = GameObject.Find("Crosshair").GetComponent<SpriteRenderer>();
+        cursorSprite = cursorCrosshair.sprite;
+        TowerUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -48,6 +55,12 @@ public class TowerScript : MonoBehaviour
                 }
             }
             timer = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TowerUI.SetActive(false);
+            cursorCrosshair.sprite = cursorSprite;
         }
     }
 
@@ -83,6 +96,7 @@ public class TowerScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        TowerUI.SetActive(true);
         IncreaseRange();
     }
 

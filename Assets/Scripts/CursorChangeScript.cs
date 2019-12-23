@@ -7,16 +7,19 @@ using UnityEngine.EventSystems;
 
 public class CursorChangeScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject cursor;
+    private SpriteRenderer cursor;
 
     public Sprite cursorOverUI;
 
     private Sprite oldCursor;
 
-    private bool isOverUI = false;
+    public PointAndShoot pointAndShoot;
     // Start is called before the first frame update
     void Start()
     {
+        cursor = GameObject.Find("Crosshair").GetComponent<SpriteRenderer>();
+        oldCursor = cursor.sprite;
+        pointAndShoot = GameObject.Find("Main Camera").GetComponent<PointAndShoot>();
     }
 
     // Update is called once per frame
@@ -27,19 +30,18 @@ public class CursorChangeScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        isOverUI = true;
-        oldCursor = cursor.GetComponent<SpriteRenderer>().sprite;
-        cursor.GetComponent<SpriteRenderer>().sprite = cursorOverUI;
+        pointAndShoot.SetIsOverUI(true);
+        cursor.sprite = cursorOverUI;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        isOverUI = false;
-        cursor.GetComponent<SpriteRenderer>().sprite = oldCursor;
+        pointAndShoot.SetIsOverUI(false);
+        cursor.sprite = oldCursor;
     }
 
-    public bool GetIsOverUI()
+    private void OnDisable()
     {
-        return isOverUI;
+        pointAndShoot.SetIsOverUI(false);
     }
 }
