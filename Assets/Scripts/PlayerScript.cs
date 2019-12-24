@@ -12,7 +12,6 @@ public class PlayerScript : MonoBehaviour
     public Slider expBar;
     private Rigidbody2D rb;
     public Animator animator;
-    public int gold;
     public float currentExp = 0;
     public float maxExp = 2;
     private int level = 1;

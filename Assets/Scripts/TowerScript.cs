@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerScript : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class TowerScript : MonoBehaviour
     public GameObject TowerUI;
     private SpriteRenderer cursorCrosshair;
     private Sprite cursorSprite;
+    private float upgradeCost = 100;
+    private bool isMaxRange = false;
+    public Text upgradeCostText;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,7 @@ public class TowerScript : MonoBehaviour
         cursorCrosshair = GameObject.Find("Crosshair").GetComponent<SpriteRenderer>();
         cursorSprite = cursorCrosshair.sprite;
         TowerUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        upgradeCostText.text = upgradeCost.ToString();
     }
 
     // Update is called once per frame
@@ -97,7 +102,6 @@ public class TowerScript : MonoBehaviour
     private void OnMouseDown()
     {
         TowerUI.SetActive(true);
-        IncreaseRange();
     }
 
     public void IncreaseRange()
@@ -107,12 +111,30 @@ public class TowerScript : MonoBehaviour
             if (towerRange + 0.1f > 61.38)
             {
                 towerRange = 61.38f;
+                isMaxRange = true;
             }
             else
             {
                 towerRange += 0.1f;
             }
             rangeCircle.transform.localScale += new Vector3(0.018f, 0.018f, 0.018f);
-        } 
+            IncreaseCost();
+        }
+    }
+
+    public void IncreaseCost()
+    {
+        upgradeCost += 100;
+        upgradeCostText.text = upgradeCost.ToString();
+    }
+
+    public float GetUpgradeCost()
+    {
+        return upgradeCost;
+    }
+
+    public bool IsMaxRange()
+    {
+        return isMaxRange;
     }
 }

@@ -1006,7 +1006,6 @@ MonoBehaviour:
   speed: 20
   expBar: {fileID: 920795675}
   animator: {fileID: 541382478}
-  gold: 0
   currentExp: 0
   maxExp: 2
   skillPoints: 0
@@ -43790,6 +43789,10 @@ PrefabInstance:
       propertyPath: pointAndShoot
       value: 
       objectReference: {fileID: 519420030}
+    - target: {fileID: 246445610, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 1429402799}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a09cab7634242e34c986414163d9e428, type: 3}
 --- !u!1001 &3807627437681540961

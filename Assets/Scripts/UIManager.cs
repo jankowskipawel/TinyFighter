@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public int gold;
+    public float gold;
     public GameObject player;
     public Text GoldText;
     public Text WaveText;
@@ -37,5 +37,10 @@ public class UIManager : MonoBehaviour
     public void SetEnemiesCount(int enemiesCount)
     {
         EnemyText.text = "Enemies left: " + enemiesCount;
+    }
+
+    public void RefreshGoldAmount()
+    {
+        GoldText.text = "Gold: " + gold;
     }
 }

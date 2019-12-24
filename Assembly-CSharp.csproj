@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\AIScript.cs" />
     <Compile Include="Assets\Scripts\AIScriptRB2D.cs" />
     <Compile Include="Assets\Scripts\BaseScript.cs" />
+    <Compile Include="Assets\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\Scripts\CameraScript.cs" />
     <Compile Include="Assets\Scripts\CursorChangeScript.cs" />
     <Compile Include="Assets\Scripts\DestroyScript.cs" />
