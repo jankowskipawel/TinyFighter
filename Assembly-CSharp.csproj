@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\PointAndShoot.cs" />
     <Compile Include="Assets\Scripts\SpellScript.cs" />
     <Compile Include="Assets\Scripts\TowerScript.cs" />
+    <Compile Include="Assets\Scripts\TowerUIScript.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Projects/gamedev/TinyFighter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

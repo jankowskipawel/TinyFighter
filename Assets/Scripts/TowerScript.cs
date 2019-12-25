@@ -30,6 +30,9 @@ public class TowerScript : MonoBehaviour
     private float upgradeCost = 100;
     private bool isMaxRange = false;
     public Text upgradeCostText;
+    private float bonusDamage = 0;
+    private TowerUIScript TUIScript;
+    private bool isUIActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,8 @@ public class TowerScript : MonoBehaviour
         cursorSprite = cursorCrosshair.sprite;
         TowerUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         upgradeCostText.text = upgradeCost.ToString();
+        TUIScript = TowerUI.GetComponent<TowerUIScript>();
+        TUIScript.UpdateText();
     }
 
     // Update is called once per frame
@@ -65,6 +70,8 @@ public class TowerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TowerUI.SetActive(false);
+            rangeCircle.SetActive(false);
+            isUIActive = false;
             cursorCrosshair.sprite = cursorSprite;
         }
     }
@@ -72,6 +79,7 @@ public class TowerScript : MonoBehaviour
     public void Attack(Vector3 targetPos)
     {
         GameObject b = Instantiate(attackPrefab) as GameObject;
+        b.GetComponent<SpellScript>().damage += bonusDamage;
         var position = transform.position;
         position.y += 1;
         Vector3 difference = targetPos - position;
@@ -96,12 +104,17 @@ public class TowerScript : MonoBehaviour
 
     private void OnMouseExit()
     {
-        rangeCircle.SetActive(false);
+        if (!isUIActive)
+        {
+            rangeCircle.SetActive(false);
+        }
     }
 
     private void OnMouseDown()
     {
         TowerUI.SetActive(true);
+        rangeCircle.SetActive(true);
+        isUIActive = true;
     }
 
     public void IncreaseRange()
@@ -118,14 +131,21 @@ public class TowerScript : MonoBehaviour
                 towerRange += 0.1f;
             }
             rangeCircle.transform.localScale += new Vector3(0.018f, 0.018f, 0.018f);
-            IncreaseCost();
+            IncreaseCostAndRefresh();
         }
     }
 
-    public void IncreaseCost()
+    public void IncreaseDamage()
+    {
+        bonusDamage += 10;
+        IncreaseCostAndRefresh();
+    }
+
+    public void IncreaseCostAndRefresh()
     {
         upgradeCost += 100;
         upgradeCostText.text = upgradeCost.ToString();
+        TUIScript.UpdateText();
     }
 
     public float GetUpgradeCost()
@@ -136,5 +156,10 @@ public class TowerScript : MonoBehaviour
     public bool IsMaxRange()
     {
         return isMaxRange;
+    }
+
+    public float GetDamage()
+    {
+        return bonusDamage + attackPrefab.GetComponent<SpellScript>().damage;
     }
 }

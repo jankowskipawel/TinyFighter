@@ -559,7 +559,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 620835593}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1822699998}
+        m_MethodName: AddDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1822699998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660b236a116b90b4f8bcc31feb5837cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerScript: {fileID: 0}
+  towerScript: {fileID: 2475149776066181101}
   UI: {fileID: 0}
 --- !u!1 &697672205
 GameObject:
@@ -1110,7 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660b236a116b90b4f8bcc31feb5837cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerScript: {fileID: 0}
+  towerScript: {fileID: 2475149776066181101}
   UI: {fileID: 0}
 --- !u!1 &1252397085
 GameObject:
@@ -1763,13 +1774,14 @@ GameObject:
   - component: {fileID: 2030407794}
   - component: {fileID: 2030407793}
   - component: {fileID: 2030407792}
+  - component: {fileID: 30691196}
   m_Layer: 10
   m_Name: TowerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2030407791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1850,6 +1862,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &30691196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030407790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b2f11da6adbb984c9685df5e6c2416a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 1592704915}
+  attackSpeedText: {fileID: 1252397088}
+  rangeText: {fileID: 1754774839}
+  projectileSpeedText: {fileID: 913888059}
+  towerScript: {fileID: 2475149776066181101}
 --- !u!1 &2475149776066181102
 GameObject:
   m_ObjectHideFlags: 0
