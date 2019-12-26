@@ -57,4 +57,19 @@ public class ButtonHandler : MonoBehaviour
             timer = 0;
         }
     }
+
+    public void AddAttackSpeed()
+    {
+        if (UI.gold >= towerScript.GetUpgradeCost() && towerScript.attackRate >= 0.11f)
+        {
+            UI.gold -= towerScript.GetUpgradeCost();
+            towerScript.IncreaseAttackSpeed();
+            UI.RefreshGoldAmount();
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = Color.red;
+            timer = 0;
+        }
+    }
 }

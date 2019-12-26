@@ -137,15 +137,21 @@ public class TowerScript : MonoBehaviour
 
     public void IncreaseDamage()
     {
-        bonusDamage += 10;
+        bonusDamage += 5;
         IncreaseCostAndRefresh();
     }
 
     public void IncreaseCostAndRefresh()
     {
-        upgradeCost += 100;
+        upgradeCost += 50;
         upgradeCostText.text = upgradeCost.ToString();
         TUIScript.UpdateText();
+    }
+
+    public void IncreaseAttackSpeed()
+    {
+        attackRate -= 0.01f;
+        IncreaseCostAndRefresh();
     }
 
     public float GetUpgradeCost()

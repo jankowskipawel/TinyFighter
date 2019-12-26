@@ -344,6 +344,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3377090937682941859, guid: a81ddfd70084fa8459b72551d2f5e96f,
+        type: 3}
+      propertyPath: maxHP
+      value: 50000000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a81ddfd70084fa8459b72551d2f5e96f, type: 3}
 --- !u!1 &202671676
@@ -615,6 +620,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &379492298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1359999377, guid: a09cab7634242e34c986414163d9e428,
+    type: 3}
+  m_PrefabInstance: {fileID: 2475149777878038066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660b236a116b90b4f8bcc31feb5837cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &386555136
 GameObject:
   m_ObjectHideFlags: 0
@@ -43812,6 +43829,34 @@ PrefabInstance:
     - target: {fileID: 186092339, guid: a09cab7634242e34c986414163d9e428, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030407790, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214274205, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214274205, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214274205, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214274205, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 379492298}
+    - target: {fileID: 1214274205, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddAttackSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214274205, guid: a09cab7634242e34c986414163d9e428, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a09cab7634242e34c986414163d9e428, type: 3}
