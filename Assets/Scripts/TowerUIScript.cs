@@ -26,7 +26,7 @@ public class TowerUIScript : MonoBehaviour
     {
         damageText.text = $"Damage: {towerScript.GetDamage()}";
         attackSpeedText.text = $"Attack Speed: {Math.Round(1/towerScript.attackRate, 2)}/SEC";
-        rangeText.text = $"Rage: {Math.Round(towerScript.towerRange-59, 3)}";
+        rangeText.text = $"Range: {Math.Round(towerScript.towerRange-59, 3)}";
         projectileSpeedText.text = $"Projectile Speed: {towerScript.spellSpeed}";
     }
 }
