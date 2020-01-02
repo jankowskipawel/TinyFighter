@@ -33,6 +33,9 @@ public class TowerScript : MonoBehaviour
     private float bonusDamage = 0;
     private TowerUIScript TUIScript;
     private bool isUIActive = false;
+    private float upgradesWorth;
+    public float towerPrice;
+    private UIManager UI;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,7 @@ public class TowerScript : MonoBehaviour
         upgradeCostText.text = upgradeCost.ToString();
         TUIScript = TowerUI.GetComponent<TowerUIScript>();
         TUIScript.UpdateText();
+        UI = GameObject.Find("CanvasUI").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -143,6 +147,7 @@ public class TowerScript : MonoBehaviour
 
     public void IncreaseCostAndRefresh()
     {
+        IncreaseUpgradesWorth(upgradeCost);
         upgradeCost += 50;
         upgradeCostText.text = upgradeCost.ToString();
         TUIScript.UpdateText();
@@ -167,5 +172,22 @@ public class TowerScript : MonoBehaviour
     public float GetDamage()
     {
         return bonusDamage + attackPrefab.GetComponent<SpellScript>().damage;
+    }
+
+    public float GetTowerWorth()
+    {
+        return towerPrice + upgradesWorth;
+    }
+
+    private void IncreaseUpgradesWorth(float amount)
+    {
+        upgradesWorth += amount;
+    }
+    
+    public void Sell()
+    {
+        UI.gold += GetTowerWorth() / 2;
+        UI.RefreshGoldAmount();
+        Destroy(gameObject);
     }
 }

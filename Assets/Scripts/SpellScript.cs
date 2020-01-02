@@ -52,4 +52,6 @@ public class SpellScript : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    
 }

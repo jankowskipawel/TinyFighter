@@ -72,4 +72,9 @@ public class ButtonHandler : MonoBehaviour
             timer = 0;
         }
     }
+
+    public void SellTower()
+    {
+        towerScript.Sell();
+    }
 }

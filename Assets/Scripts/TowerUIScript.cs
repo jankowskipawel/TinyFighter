@@ -9,7 +9,7 @@ public class TowerUIScript : MonoBehaviour
     public Text damageText;
     public Text attackSpeedText;
     public Text rangeText;
-    public Text projectileSpeedText;
+    public Text sellPriceText;
 
     public TowerScript towerScript;
     // Start is called before the first frame update
@@ -27,6 +27,6 @@ public class TowerUIScript : MonoBehaviour
         damageText.text = $"Damage: {towerScript.GetDamage()}";
         attackSpeedText.text = $"Attack Speed: {Math.Round(1/towerScript.attackRate, 2)}/SEC";
         rangeText.text = $"Range: {Math.Round(towerScript.towerRange-59, 3)}";
-        projectileSpeedText.text = $"Projectile Speed: {towerScript.spellSpeed}";
+        sellPriceText.text = $"Sells for: {towerScript.GetTowerWorth()/2}";
     }
 }
