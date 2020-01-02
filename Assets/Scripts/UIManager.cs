@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public Text GoldText;
     public Text WaveText;
     public Text EnemyText;
+
+    private bool isTowerUIOpened = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +44,15 @@ public class UIManager : MonoBehaviour
     public void RefreshGoldAmount()
     {
         GoldText.text = "Gold: " + gold;
+    }
+    
+    public bool GetIsTowerUIOpened()
+    {
+        return isTowerUIOpened;
+    }
+    
+    public void SetTowerUI(bool x)
+    {
+        isTowerUIOpened = x;
     }
 }

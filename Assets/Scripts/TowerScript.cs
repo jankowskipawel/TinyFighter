@@ -76,6 +76,7 @@ public class TowerScript : MonoBehaviour
             TowerUI.SetActive(false);
             rangeCircle.SetActive(false);
             isUIActive = false;
+            UI.SetTowerUI(false);
             cursorCrosshair.sprite = cursorSprite;
         }
     }
@@ -116,9 +117,13 @@ public class TowerScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        TowerUI.SetActive(true);
-        rangeCircle.SetActive(true);
-        isUIActive = true;
+        if (!UI.GetIsTowerUIOpened())
+        {
+            TowerUI.SetActive(true);
+            rangeCircle.SetActive(true);
+            isUIActive = true;
+            UI.SetTowerUI(true);
+        }
     }
 
     public void IncreaseRange()
@@ -189,5 +194,10 @@ public class TowerScript : MonoBehaviour
         UI.gold += GetTowerWorth() / 2;
         UI.RefreshGoldAmount();
         Destroy(gameObject);
+        TowerUI.SetActive(false);
+        rangeCircle.SetActive(false);
+        isUIActive = false;
+        UI.SetTowerUI(false);
+        cursorCrosshair.sprite = cursorSprite;
     }
 }
