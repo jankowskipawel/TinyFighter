@@ -125,6 +125,8 @@ MonoBehaviour:
   spellSpeed: 16
   travelTime: 0.6
   animator: {fileID: 5905558028572845292}
+  pfDamagePopup: {fileID: 836131275783557776, guid: 8530162bba847e842b9c78a523d9599e,
+    type: 3}
 --- !u!61 &2012597277020533185
 BoxCollider2D:
   m_ObjectHideFlags: 0

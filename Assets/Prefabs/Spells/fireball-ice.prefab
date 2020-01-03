@@ -117,12 +117,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackPower: 0
-  damage: 10
+  damage: 20
   shotParticle: {fileID: 0}
   trailParticle: {fileID: 0}
   spellSpeed: 16
   travelTime: 0.6
   animator: {fileID: 4440020038900132872}
+  pfDamagePopup: {fileID: 836131275783557776, guid: 8530162bba847e842b9c78a523d9599e,
+    type: 3}
 --- !u!61 &4440020038900132873
 BoxCollider2D:
   m_ObjectHideFlags: 0

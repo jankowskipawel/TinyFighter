@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ac21deb33bd534ebfdebff32705e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 60
+  maxHP: 20
   goldWorth: 20
   ui: {fileID: 0}
   healthBar: {fileID: 3807627438490190020}
@@ -67,6 +67,8 @@ MonoBehaviour:
   isKnockbackable: 0
   animator: {fileID: 3807627437300967176}
   attackProjectile: {fileID: 0}
+  pfDamagePopup: {fileID: 836131275783557776, guid: 8530162bba847e842b9c78a523d9599e,
+    type: 3}
 --- !u!50 &3807627437300967181
 Rigidbody2D:
   serializedVersion: 4

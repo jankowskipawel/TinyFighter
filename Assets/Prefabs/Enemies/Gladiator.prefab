@@ -160,6 +160,8 @@ MonoBehaviour:
   isKnockbackable: 0
   animator: {fileID: 5228290456883025136}
   attackProjectile: {fileID: 0}
+  pfDamagePopup: {fileID: 836131275783557776, guid: 8530162bba847e842b9c78a523d9599e,
+    type: 3}
 --- !u!114 &3377090937682941858
 MonoBehaviour:
   m_ObjectHideFlags: 0

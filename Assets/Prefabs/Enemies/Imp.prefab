@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ac21deb33bd534ebfdebff32705e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 20
   goldWorth: 100
   ui: {fileID: 0}
   healthBar: {fileID: 4262334857514960772}
@@ -335,6 +335,8 @@ MonoBehaviour:
   isKnockbackable: 0
   animator: {fileID: 4262334857613434539}
   attackProjectile: {fileID: 1560942129941480628, guid: f97a0c1e98e81bc4d8a5d3148e08d8bc,
+    type: 3}
+  pfDamagePopup: {fileID: 836131275783557776, guid: 8530162bba847e842b9c78a523d9599e,
     type: 3}
 --- !u!114 &4262334857613434537
 MonoBehaviour:

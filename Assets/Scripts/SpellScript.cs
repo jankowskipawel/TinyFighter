@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpellScript : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class SpellScript : MonoBehaviour
     public float travelTime;
     public Animator animator;
     private static readonly int IsDestroyed = Animator.StringToHash("isDestroyed");
+    public GameObject pfDamagePopup;
 
     // Start is called before the first frame update
     void Start()
     {
         //GameObject x =  Instantiate(shotParticle, transform.position, Quaternion.identity);
+        damage += Random.Range(-damage/2, damage/2);
+        damage = Mathf.RoundToInt(damage);
     }
 
     // Update is called once per frame
@@ -42,6 +46,8 @@ public class SpellScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("MapCollision"))
         {
+            var x = Instantiate(pfDamagePopup, transform.position, Quaternion.identity);
+            x.GetComponent<DamagePopupScript>().SetText(damage);
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             gameObject.GetComponent<BoxCollider2D>().size = Vector2.zero;
             animator.SetBool(IsDestroyed, true);
