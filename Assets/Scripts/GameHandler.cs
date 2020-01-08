@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour
 {
     public GameObject[] enemies;
-
+    private PlayerScript _playerScript;
     public int enemiesLeft;
 
     public int waveNumber;
@@ -16,12 +16,15 @@ public class GameHandler : MonoBehaviour
     private int _spawnMultiplier = 2;
     private bool isGameOver = false;
     public GameObject gameOverUI;
+    private float bonusHP = 0;
+    private float timer = 5;
 
     // Start is called before the first frame update
     private void Start()
     {
         waveNumber = 1;
         ui.SetWave(waveNumber);
+        _playerScript = FindObjectOfType<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -31,17 +34,23 @@ public class GameHandler : MonoBehaviour
         ui.SetEnemiesCount(enemiesLeft);
         if (enemiesLeft == 0)
         {
-            SpawnEnemies(5+_spawnMultiplier);
-            if (waveNumber % 10 == 0)
+            timer -= Time.deltaTime;
+            if (timer <= 0)
             {
-                _spawnMultiplier = 2;
+                SpawnEnemies(5+_spawnMultiplier);
+                if (waveNumber % 10 == 0)
+                {
+                    _spawnMultiplier = 2;
+                }
+                else
+                {
+                    _spawnMultiplier += 2;
+                }
+                waveNumber++;
+                bonusHP += waveNumber * 2;
+                ui.SetWave(waveNumber);
+                timer = 5;
             }
-            else
-            {
-                _spawnMultiplier += 2;
-            }
-            waveNumber++;
-            ui.SetWave(waveNumber);
         }
     }
 
@@ -91,6 +100,7 @@ public class GameHandler : MonoBehaviour
         if (!isGameOver)
         {
             isGameOver = true;
+            _playerScript.SetGameOver(true);
             gameOverUI.SetActive(true);
         }
     }
@@ -98,5 +108,15 @@ public class GameHandler : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public float GetBonusHP()
+    {
+        return bonusHP;
+    }
+
+    public float GetTimer()
+    {
+        return timer;
     }
 }

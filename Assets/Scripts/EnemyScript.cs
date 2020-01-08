@@ -27,17 +27,20 @@ public class EnemyScript : MonoBehaviour
     private static readonly int Hit = Animator.StringToHash("hit");
     private float timer;
     public GameObject attackProjectile;
+    private GameHandler _gameHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         attackRate = 1 / attackRate;
-        currentHP = maxHP;
         ui = GameObject.Find("CanvasUI").GetComponent<UIManager>();
         _rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<PlayerScript>();
         baseObject = GameObject.Find("Base");
         baseScript = baseObject.GetComponent<BaseScript>();
+        _gameHandler = FindObjectOfType<GameHandler>();
+        maxHP = maxHP + _gameHandler.GetBonusHP();
+        currentHP = maxHP;
     }
 
     // Update is called once per frame
@@ -92,6 +95,7 @@ public class EnemyScript : MonoBehaviour
         if (baseScript.currentHP <= 0)
         {
             baseScript.currentHP = 0;
+            baseScript.healthRegen = 0;
             FindObjectOfType<GameHandler>().GameOver();
         }
     }

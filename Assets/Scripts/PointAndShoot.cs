@@ -12,12 +12,14 @@ public class PointAndShoot : MonoBehaviour
     public float spellSpeed;
     public GameObject spellStart;
     private bool isOverUI = false;
+    private PlayerScript _playerScript;
     
     // Start is called before the first frame update
     void Start()
     {
         spellSpeed = spellPrefab.GetComponent<SpellScript>().spellSpeed;
         Cursor.visible = false;
+        _playerScript = player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class PointAndShoot : MonoBehaviour
         hand.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
 
-        if (Input.GetMouseButtonDown(0) && !isOverUI)
+        if (Input.GetMouseButtonDown(0) && !isOverUI && !_playerScript.GetGameOver())
         {
             float distance = difference.magnitude;
             Vector2 direction = difference / distance;

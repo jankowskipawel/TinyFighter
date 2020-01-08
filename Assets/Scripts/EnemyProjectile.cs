@@ -33,6 +33,7 @@ public class EnemyProjectile : MonoBehaviour
             if (baseScript.currentHP <= 0)
             {
                 baseScript.currentHP = 0;
+                baseScript.healthRegen = 0;
                 FindObjectOfType<GameHandler>().GameOver();
             }
         }

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     private static readonly int Speed = Animator.StringToHash("Speed");
     public Text levelText;
     public GameObject levelUpAnimation;
+    private bool isGameOver = false;
 
 
 
@@ -33,40 +33,42 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        if (!isGameOver)
+        {
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
 
-        Vector3 tempVect = new Vector3(h, v, 0);
-        tempVect = Time.deltaTime * speed * tempVect.normalized;
-        rb.MovePosition(rb.transform.position + tempVect);
+            Vector3 tempVect = new Vector3(h, v, 0);
+            tempVect = Time.deltaTime * speed * tempVect.normalized;
+            rb.MovePosition(rb.transform.position + tempVect);
         
-        if (h > 0)
-        {
-            animator.SetFloat(Speed, 1);
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        }
+            if (h > 0)
+            {
+                animator.SetFloat(Speed, 1);
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
         
-        if (h < 0)
-        {
-            animator.SetFloat(Speed, 1);
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
+            if (h < 0)
+            {
+                animator.SetFloat(Speed, 1);
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
         
-        if (v > 0)
-        {
-            animator.SetFloat(Speed, 1);
-        }
+            if (v > 0)
+            {
+                animator.SetFloat(Speed, 1);
+            }
         
-        if (v < 0)
-        {
-            animator.SetFloat(Speed, 1);
-        }
+            if (v < 0)
+            {
+                animator.SetFloat(Speed, 1);
+            }
 
-        if (h == 0 && v == 0)
-        {
-            animator.SetFloat(Speed, 0);
+            if (h == 0 && v == 0)
+            {
+                animator.SetFloat(Speed, 0);
+            }
         }
-        
     }
 
     public void AddExp(float exp)
@@ -94,13 +96,18 @@ public class PlayerScript : MonoBehaviour
         expBar.value = percentage;
     }
 
-    public void Death()
-    {
-        Destroy(gameObject);
-    }
-    
     public void SetLevelText(int level)
     {
         levelText.text = $"Level {level}";
+    }
+
+    public void SetGameOver(bool x)
+    {
+        isGameOver = x;
+    }
+
+    public bool GetGameOver()
+    {
+        return isGameOver;
     }
 }
