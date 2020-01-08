@@ -89,10 +89,11 @@ public class EnemyScript : MonoBehaviour
     public void DealDamage()
     {
         baseScript.currentHP -= damage;
-        /*if (baseScript.currentHP < 0)
+        if (baseScript.currentHP <= 0)
         {
-            //player.animator.SetBool(IsDead, true);
-        }*/
+            baseScript.currentHP = 0;
+            FindObjectOfType<GameHandler>().GameOver();
+        }
     }
     
     public void DestroyYourself()

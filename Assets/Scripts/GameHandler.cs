@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameHandler : MonoBehaviour
     public int waveNumber;
     public UIManager ui;
     private int _spawnMultiplier = 2;
+    private bool isGameOver = false;
+    public GameObject gameOverUI;
 
     // Start is called before the first frame update
     private void Start()
@@ -81,5 +84,19 @@ public class GameHandler : MonoBehaviour
         }
 
         return result;
+    }
+
+    public void GameOver()
+    {
+        if (!isGameOver)
+        {
+            isGameOver = true;
+            gameOverUI.SetActive(true);
+        }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -30,6 +30,11 @@ public class EnemyProjectile : MonoBehaviour
             baseScript.currentHP -= damage;
             gameObject.GetComponent<BoxCollider2D>().size = Vector2.zero;
             gameObject.GetComponent<Animator>().SetTrigger(Hit);
+            if (baseScript.currentHP <= 0)
+            {
+                baseScript.currentHP = 0;
+                FindObjectOfType<GameHandler>().GameOver();
+            }
         }
     }
 
