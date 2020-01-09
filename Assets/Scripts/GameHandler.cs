@@ -17,7 +17,8 @@ public class GameHandler : MonoBehaviour
     private bool isGameOver = false;
     public GameObject gameOverUI;
     private float bonusHP = 0;
-    private float timer = 5;
+    private float timer = 10;
+    private bool isWaveInProgress = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -35,6 +36,7 @@ public class GameHandler : MonoBehaviour
         if (enemiesLeft == 0)
         {
             timer -= Time.deltaTime;
+            isWaveInProgress = false;
             if (timer <= 0)
             {
                 SpawnEnemies(5+_spawnMultiplier);
@@ -49,7 +51,8 @@ public class GameHandler : MonoBehaviour
                 waveNumber++;
                 bonusHP += waveNumber * 2;
                 ui.SetWave(waveNumber);
-                timer = 5;
+                timer = 10;
+                isWaveInProgress = true;
             }
         }
     }
@@ -118,5 +121,15 @@ public class GameHandler : MonoBehaviour
     public float GetTimer()
     {
         return timer;
+    }
+
+    public void SetTimer(float amount)
+    {
+        timer = amount;
+    }
+
+    public bool IsWaveInProgress()
+    {
+        return isWaveInProgress;
     }
 }

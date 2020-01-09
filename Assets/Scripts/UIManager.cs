@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public Text EnemyText;
     private GameHandler gameHandler;
     public Text TimerText;
+    public GameObject SkipWaveButton;
 
     private bool isTowerUIOpened = false;
     // Start is called before the first frame update
@@ -29,10 +30,12 @@ public class UIManager : MonoBehaviour
         if (tmpTimer >= 0)
         {
             TimerText.text = Math.Round(tmpTimer).ToString();
+            SkipWaveButton.SetActive(true);
         }
-        if (tmpTimer == 5)
+        if (tmpTimer == 10)
         {
             TimerText.text = "";
+            SkipWaveButton.SetActive(false);
         }
 
     }

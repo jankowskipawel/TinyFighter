@@ -10,12 +10,14 @@ public class ButtonHandler : MonoBehaviour
     public UIManager UI;
 
     private float timer = 0;
-    
+
+    private GameHandler _gameHandler;
     // Start is called before the first frame update
     void Start()
     {
         UI = GameObject.Find("CanvasUI").GetComponent<UIManager>();
         timer = 0;
+        _gameHandler = FindObjectOfType<GameHandler>();
     }
 
     // Update is called once per frame
@@ -76,5 +78,13 @@ public class ButtonHandler : MonoBehaviour
     public void SellTower()
     {
         towerScript.Sell();
+    }
+
+    public void NextWave()
+    {
+        if (!_gameHandler.IsWaveInProgress())
+        {
+            _gameHandler.SetTimer(0);
+        }
     }
 }
