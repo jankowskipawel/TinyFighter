@@ -8,8 +8,10 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public Text expText;
     public Text levelText;
-
+    public Text skillPointText;
+    public Image skillPointImage;
     public GameObject player;
+    private PlayerScript playerScript;
 
     private float currentExp;
 
@@ -18,11 +20,22 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     void Start()
     {
         expText.gameObject.SetActive(false);
+        playerScript = player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        var tmpSkillpoints = playerScript.skillPoints;
+        UpdateSkillPointAmount(tmpSkillpoints);
+        if (tmpSkillpoints <= 0)
+        {
+            skillPointImage.color = Color.gray;
+        }
+        else
+        {
+            skillPointImage.color = new Color(1f, 0.298f, 0.298f);
+        }
         
     }
     
@@ -43,5 +56,10 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void SetExpText(float currentExp, float maxExp)
     {
         expText.text = $"{currentExp}\n/\n{maxExp}";
+    }
+
+    public void UpdateSkillPointAmount(int amount)
+    {
+        skillPointText.text = amount.ToString();
     }
 }
