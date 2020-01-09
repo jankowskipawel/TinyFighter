@@ -42,6 +42,6 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     
     public void SetExpText(float currentExp, float maxExp)
     {
-        expText.text = $"{currentExp} / {maxExp}";
+        expText.text = $"{currentExp}\n/\n{maxExp}";
     }
 }

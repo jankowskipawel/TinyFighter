@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     public float speed;
-    public Slider expBar;
+    public Image expBarFill;
     private Rigidbody2D rb;
     public Animator animator;
     public float currentExp = 0;
@@ -93,12 +93,12 @@ public class PlayerScript : MonoBehaviour
 
     private void SetExpBar(float percentage)
     {
-        expBar.value = percentage;
+        expBarFill.fillAmount = percentage;
     }
 
     public void SetLevelText(int level)
     {
-        levelText.text = $"Level {level}";
+        levelText.text = $"Level\n{level}";
     }
 
     public void SetGameOver(bool x)
