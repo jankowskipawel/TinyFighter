@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,10 +13,10 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Image skillPointImage;
     public GameObject player;
     private PlayerScript playerScript;
-
     private float currentExp;
-
     private float maxExp;
+
+    public GameObject SkillsUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,11 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             skillPointImage.color = new Color(1f, 0.298f, 0.298f);
         }
-        
+
+        if (Input.GetKeyDown("escape"))
+        {
+            CloseSkillsUI();
+        }
     }
     
     public void OnPointerEnter(PointerEventData eventData)
@@ -50,7 +55,6 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         expText.gameObject.SetActive(false);
         levelText.gameObject.SetActive(true);
-
     }
     
     public void SetExpText(float currentExp, float maxExp)
@@ -61,5 +65,15 @@ public class ExpShowScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void UpdateSkillPointAmount(int amount)
     {
         skillPointText.text = amount.ToString();
+    }
+
+    public void OpenSkillsUI()
+    {
+        SkillsUI.SetActive(true);
+    }
+    
+    private void CloseSkillsUI()
+    {
+        SkillsUI.SetActive(false);
     }
 }

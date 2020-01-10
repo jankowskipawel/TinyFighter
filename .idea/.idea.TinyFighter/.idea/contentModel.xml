@@ -22,6 +22,7 @@
           <e p="HandScript.cs" t="Include" />
           <e p="HealthBar.cs" t="Include" />
           <e p="HealthBarPlayerS.cs" t="Include" />
+          <e p="OpenSkillsUIScript.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="PointAndShoot.cs" t="Include" />
           <e p="RestartButtonScript.cs" t="Include" />

@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\HandScript.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthBarPlayerS.cs" />
+    <Compile Include="Assets\Scripts\OpenSkillsUIScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\PointAndShoot.cs" />
     <Compile Include="Assets\Scripts\RestartButtonScript.cs" />
