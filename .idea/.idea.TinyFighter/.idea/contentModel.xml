@@ -26,6 +26,7 @@
           <e p="PlayerScript.cs" t="Include" />
           <e p="PointAndShoot.cs" t="Include" />
           <e p="RestartButtonScript.cs" t="Include" />
+          <e p="SkillsUIScript.cs" t="Include" />
           <e p="SpellScript.cs" t="Include" />
           <e p="TowerScript.cs" t="Include" />
           <e p="TowerUIScript.cs" t="Include" />

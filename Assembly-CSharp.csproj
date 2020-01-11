@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\PointAndShoot.cs" />
     <Compile Include="Assets\Scripts\RestartButtonScript.cs" />
+    <Compile Include="Assets\Scripts\SkillsUIScript.cs" />
     <Compile Include="Assets\Scripts\SpellScript.cs" />
     <Compile Include="Assets\Scripts\TowerScript.cs" />
     <Compile Include="Assets\Scripts\TowerUIScript.cs" />
