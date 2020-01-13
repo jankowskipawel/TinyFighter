@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     public Text levelText;
     public GameObject levelUpAnimation;
     private bool isGameOver = false;
+    private float bonusDamage = 0;
 
 
 
@@ -109,5 +110,15 @@ public class PlayerScript : MonoBehaviour
     public bool GetGameOver()
     {
         return isGameOver;
+    }
+
+    public void AddDamage(float amount)
+    {
+        bonusDamage += amount;
+    }
+
+    public float GetBonusDamage()
+    {
+        return bonusDamage;
     }
 }

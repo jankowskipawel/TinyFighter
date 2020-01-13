@@ -45,6 +45,7 @@ public class PointAndShoot : MonoBehaviour
     void FireBullet(Vector2 direction, float rotationZ)
     {
         GameObject b = Instantiate(spellPrefab) as GameObject;
+        b.GetComponent<SpellScript>().damage += _playerScript.GetBonusDamage();
         b.transform.position = spellStart.transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         b.GetComponent<Rigidbody2D>().velocity = direction * spellSpeed;
