@@ -2448,7 +2448,7 @@ MonoBehaviour:
   animator: {fileID: 541382478}
   currentExp: 0
   maxExp: 2
-  skillPoints: 9999
+  skillPoints: 0
   levelText: {fileID: 1582717531}
   levelUpAnimation: {fileID: 8805651802735842976, guid: c3b33b5b56daa8d4e9bae4ffe846a142,
     type: 3}
@@ -49824,6 +49824,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxHP
       value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377090937682941885, guid: a81ddfd70084fa8459b72551d2f5e96f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a81ddfd70084fa8459b72551d2f5e96f, type: 3}
