@@ -19,13 +19,13 @@
           <e p="EnemyScript.cs" t="Include" />
           <e p="ExpShowScript.cs" t="Include" />
           <e p="GameHandler.cs" t="Include" />
+          <e p="GameOverButtonsScript.cs" t="Include" />
           <e p="HandScript.cs" t="Include" />
           <e p="HealthBar.cs" t="Include" />
           <e p="HealthBarPlayerS.cs" t="Include" />
           <e p="OpenSkillsUIScript.cs" t="Include" />
           <e p="PlayerScript.cs" t="Include" />
           <e p="PointAndShoot.cs" t="Include" />
-          <e p="RestartButtonScript.cs" t="Include" />
           <e p="SkillsButtonsScript.cs" t="Include" />
           <e p="SkillsUIScript.cs" t="Include" />
           <e p="SpellScript.cs" t="Include" />

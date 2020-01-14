@@ -75,13 +75,13 @@
     <Compile Include="Assets\Scripts\EnemyScript.cs" />
     <Compile Include="Assets\Scripts\ExpShowScript.cs" />
     <Compile Include="Assets\Scripts\GameHandler.cs" />
+    <Compile Include="Assets\Scripts\GameOverButtonsScript.cs" />
     <Compile Include="Assets\Scripts\HandScript.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\HealthBarPlayerS.cs" />
     <Compile Include="Assets\Scripts\OpenSkillsUIScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\PointAndShoot.cs" />
-    <Compile Include="Assets\Scripts\RestartButtonScript.cs" />
     <Compile Include="Assets\Scripts\SkillsButtonsScript.cs" />
     <Compile Include="Assets\Scripts\SkillsUIScript.cs" />
     <Compile Include="Assets\Scripts\SpellScript.cs" />
