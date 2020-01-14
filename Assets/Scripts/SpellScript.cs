@@ -44,10 +44,17 @@ public class SpellScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("MapCollision"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             var x = Instantiate(pfDamagePopup, transform.position, Quaternion.identity);
             x.GetComponent<DamagePopupScript>().SetText(damage);
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            gameObject.GetComponent<BoxCollider2D>().size = Vector2.zero;
+            animator.SetBool(IsDestroyed, true);
+        }
+
+        if (collision.gameObject.CompareTag("MapCollision"))
+        {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             gameObject.GetComponent<BoxCollider2D>().size = Vector2.zero;
             animator.SetBool(IsDestroyed, true);
