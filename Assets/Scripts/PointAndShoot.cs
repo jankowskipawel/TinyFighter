@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class PointAndShoot : MonoBehaviour
 {
@@ -48,6 +50,11 @@ public class PointAndShoot : MonoBehaviour
         var tmp = b.GetComponent<SpellScript>();
         tmp.damage += _playerScript.GetBonusDamage();
         tmp.travelTime += _playerScript.GetBonusRange();
+        if (UnityEngine.Random.Range(0f, 100f) <= _playerScript.critChance)
+        {
+            tmp.damage += tmp.damage;
+            tmp.SetIsCritical(true);
+        }
         b.transform.position = spellStart.transform.position;
         b.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
         b.GetComponent<Rigidbody2D>().velocity = direction * spellSpeed;

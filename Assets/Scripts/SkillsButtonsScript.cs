@@ -23,6 +23,9 @@ public class SkillsButtonsScript : MonoBehaviour
     private int rangeLevel = 0;
     public Text rangeText;
     
+    private int critLevel = 0;
+    public Text critText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -101,6 +104,24 @@ public class SkillsButtonsScript : MonoBehaviour
             else
             {
                 rangeText.text = rangeLevel.ToString();
+            }
+        }
+    }
+
+    public void IncreaseCriticalChance()
+    {
+        if (_playerScript.skillPoints > 0 && critLevel < 50)
+        {
+            _playerScript.IncreaseCritChance(1);
+            _playerScript.skillPoints -= 1;
+            critLevel++;
+            if (critLevel == 50)
+            {
+                critText.text = "MAX";
+            }
+            else
+            {
+                rangeText.text = critLevel.ToString();
             }
         }
     }

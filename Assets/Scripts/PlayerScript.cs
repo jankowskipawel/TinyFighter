@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour
     private bool isGameOver = false;
     private float bonusDamage = 0;
     private float bonusRange = 0;
+    public float critChance = 5;
 
 
     // Start is called before the first frame update
@@ -135,5 +136,15 @@ public class PlayerScript : MonoBehaviour
     public void IncreaseSpeed()
     {
         speed += 10;
+    }
+
+    public float GetCritChance()
+    {
+        return critChance;
+    }
+
+    public void IncreaseCritChance(float amount)
+    {
+        critChance += amount;
     }
 }
