@@ -10,6 +10,9 @@ public class SkillsButtonsScript : MonoBehaviour
     private int attackLevel = 0;
     public Text attackText;
     
+    private int movementSpeedLevel = 0;
+    public Text movementSpeedText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,24 @@ public class SkillsButtonsScript : MonoBehaviour
             playerScript.skillPoints--;
             attackLevel++;
             attackText.text = attackLevel.ToString();
+        }
+    }
+
+    public void IncreaseMovementSpeed()
+    {
+        if (playerScript.skillPoints > 9 && movementSpeedLevel < 3)
+        {
+            playerScript.IncreaseSpeed();
+            playerScript.skillPoints -= 10;
+            movementSpeedLevel++;
+            if (movementSpeedLevel == 3)
+            {
+                movementSpeedText.text = "MAX";
+            }
+            else
+            {
+                movementSpeedText.text += " I ";
+            }
         }
     }
 }

@@ -121,4 +121,9 @@ public class PlayerScript : MonoBehaviour
     {
         return bonusDamage;
     }
+
+    public void IncreaseSpeed()
+    {
+        speed += 10;
+    }
 }

@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackPower: 0.3
-  damage: 20
+  damage: 10
   shotParticle: {fileID: 1474539870397646097, guid: 971e5aa836ef5a347a6030c98023fa8c,
     type: 3}
   trailParticle: {fileID: 3876093790947648987, guid: 946a321bf0dd7754a8fb0a05ad4e5788,

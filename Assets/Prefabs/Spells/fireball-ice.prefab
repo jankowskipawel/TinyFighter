@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackPower: 0
-  damage: 20
+  damage: 10
   shotParticle: {fileID: 0}
   trailParticle: {fileID: 0}
   spellSpeed: 16
