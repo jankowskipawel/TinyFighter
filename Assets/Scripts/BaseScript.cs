@@ -25,4 +25,14 @@ public class BaseScript : MonoBehaviour
         }
         healthBar.SetSize(currentHP, maxHP);
     }
+
+    public void IncreaseHP(float amount)
+    {
+        maxHP += amount;
+    }
+    
+    public void IncreaseHPRegen(float amount)
+    {
+        healthRegen += amount;
+    }
 }

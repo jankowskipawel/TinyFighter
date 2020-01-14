@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class SkillsButtonsScript : MonoBehaviour
 {
-    private PlayerScript playerScript;
+    private PlayerScript _playerScript;
+    private BaseScript _baseScript;
     
     private int attackLevel = 0;
     public Text attackText;
@@ -13,10 +14,17 @@ public class SkillsButtonsScript : MonoBehaviour
     private int movementSpeedLevel = 0;
     public Text movementSpeedText;
     
+    private int HPLevel = 0;
+    public Text HPText;
+    
+    private int HPRegenLevel = 0;
+    public Text HPRegenText;
+    
     // Start is called before the first frame update
     void Start()
     {
-        playerScript = FindObjectOfType<PlayerScript>();
+        _playerScript = FindObjectOfType<PlayerScript>();
+        _baseScript = FindObjectOfType<BaseScript>();
     }
 
     // Update is called once per frame
@@ -27,10 +35,10 @@ public class SkillsButtonsScript : MonoBehaviour
 
     public void AddPlayerDamage()
     {
-        if (playerScript.skillPoints > 0)
+        if (_playerScript.skillPoints > 0)
         {
-            playerScript.AddDamage(10);
-            playerScript.skillPoints--;
+            _playerScript.AddDamage(10);
+            _playerScript.skillPoints--;
             attackLevel++;
             attackText.text = attackLevel.ToString();
         }
@@ -38,10 +46,10 @@ public class SkillsButtonsScript : MonoBehaviour
 
     public void IncreaseMovementSpeed()
     {
-        if (playerScript.skillPoints > 9 && movementSpeedLevel < 3)
+        if (_playerScript.skillPoints > 9 && movementSpeedLevel < 3)
         {
-            playerScript.IncreaseSpeed();
-            playerScript.skillPoints -= 10;
+            _playerScript.IncreaseSpeed();
+            _playerScript.skillPoints -= 10;
             movementSpeedLevel++;
             if (movementSpeedLevel == 3)
             {
@@ -51,6 +59,28 @@ public class SkillsButtonsScript : MonoBehaviour
             {
                 movementSpeedText.text += " I ";
             }
+        }
+    }
+
+    public void IncreaseBaseHP()
+    {
+        if (_playerScript.skillPoints > 1)
+        {
+            _baseScript.IncreaseHP(10);
+            _playerScript.skillPoints -= 1;
+            HPLevel++;
+            HPText.text = HPLevel.ToString();
+        }
+    }
+    
+    public void IncreaseBaseHPRegen()
+    {
+        if (_playerScript.skillPoints > 1)
+        {
+            _baseScript.IncreaseHPRegen(1);
+            _playerScript.skillPoints -= 1;
+            HPRegenLevel++;
+            HPRegenText.text = HPRegenLevel.ToString();
         }
     }
 }
