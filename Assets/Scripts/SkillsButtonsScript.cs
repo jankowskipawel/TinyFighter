@@ -20,6 +20,9 @@ public class SkillsButtonsScript : MonoBehaviour
     private int HPRegenLevel = 0;
     public Text HPRegenText;
     
+    private int rangeLevel = 0;
+    public Text rangeText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +67,7 @@ public class SkillsButtonsScript : MonoBehaviour
 
     public void IncreaseBaseHP()
     {
-        if (_playerScript.skillPoints > 1)
+        if (_playerScript.skillPoints > 0)
         {
             _baseScript.IncreaseHP(10);
             _playerScript.skillPoints -= 1;
@@ -78,9 +81,27 @@ public class SkillsButtonsScript : MonoBehaviour
         if (_playerScript.skillPoints > 1)
         {
             _baseScript.IncreaseHPRegen(1);
-            _playerScript.skillPoints -= 1;
+            _playerScript.skillPoints -= 2;
             HPRegenLevel++;
             HPRegenText.text = HPRegenLevel.ToString();
+        }
+    }
+
+    public void IncreaseRange()
+    {
+        if (_playerScript.skillPoints > 1 && rangeLevel < 10)
+        {
+            _playerScript.IncreaseBonusRange(0.1f);
+            _playerScript.skillPoints -= 2;
+            rangeLevel++;
+            if (rangeLevel == 10)
+            {
+                rangeText.text = "MAX";
+            }
+            else
+            {
+                rangeText.text = rangeLevel.ToString();
+            }
         }
     }
 }

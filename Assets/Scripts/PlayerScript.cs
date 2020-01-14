@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject levelUpAnimation;
     private bool isGameOver = false;
     private float bonusDamage = 0;
-
+    private float bonusRange = 0;
 
 
     // Start is called before the first frame update
@@ -120,6 +120,16 @@ public class PlayerScript : MonoBehaviour
     public float GetBonusDamage()
     {
         return bonusDamage;
+    }
+
+    public float GetBonusRange()
+    {
+        return bonusRange;
+    }
+
+    public void IncreaseBonusRange(float amount)
+    {
+        bonusRange += amount;
     }
 
     public void IncreaseSpeed()
