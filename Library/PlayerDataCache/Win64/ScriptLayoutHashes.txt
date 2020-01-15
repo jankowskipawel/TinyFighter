@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-E:/Projects/gamedev/builds/v0032/TinyFighter.exe
+E:/Projects/gamedev/builds/v0033/TinyFighter.exe
 SceneListBegin?
 Assets/Scenes/Start01.unity
 SceneListEnd?
